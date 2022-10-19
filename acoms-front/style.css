@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url('http://fonts.cdnfonts.com/css/oleo-script');
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root{
+    background: linear-gradient(to right, #0c8fd5, #54C9FF); ;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--default-color);
+    padding: 40px;
+}
+
+.container{
+    width: 1362px;
+    height: 800px;
+    top: 103px;
+    left: 46px;
+    background: white;
+    box-shadow: -20px 20px 8px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 30px;
+    border-radius: 100px;
+}
+.container .texto{
+position: absolute;
+width: 600px;
+height: 300px;
+left: 180px;
+top: 120px;
+text-align: center;
+
+font-family: 'Oleo Script', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 26px;
+line-height: 66px;
+
+color: #0C90D5;
+}
+
+
+.container .img-login{
+    position: absolute;
+    width: 522px;
+    height: 522px;
+    left: 200px;
+    top: 250px;
+    align-items: center;
+}
+
+.container .login-form .icone{
+   width: 161px;
+}
+.container .login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    margin-left: 150%;
+    margin-top: -100%;
+}
+
+.container .login-form .title{
+    position: relative
+}
+
+
+.container .login-form .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 25px;
+    background-color: var(--default-color);
+}
+
+.container .login-form .input-box{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    margin-left: -50px;
+
+}
+.retangulo{
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    height: 750px;
+    width: 8px;
+  background: linear-gradient(180deg, #54C9FF 0%, #0C90D5 100%);
+
+  transform: rotate(-180deg);
+
+}
+
+.container .login-form .input-box input{
+height: 100%;
+outline: none;
+border: none;
+padding: 0 30px;
+font-family: 'Poppins' sans-serif;
+font-size: 16px;
+font-weight: 540;
+border-bottom: 5px solid;
+border-bottom-color: #0C90D5;
+}
+
+.container .login-form .input-box .fa-vcard, .fa-lock{
+        color: #0C90D5;
+}
+
+.esquecer{
+width: 200px;
+font-family: 'Poppins', sans-serif;
+}
+
+ .botao{
+        background:linear-gradient(to right, #0c8fd5, #54C9FF);
+        background-color:#54c9ff;
+        border-radius:40px;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-weight: bold;
+        width: 250px;
+        font-size:28px;
+        padding:15px 39px;
+        text-decoration:none;
+        border: 0px;
+        margin-left: -25px;
+        margin-top: 200px;
+        position: absolute;
+    }
+    .botao:hover {
+        background:linear-gradient(to bottom, #0c8fd5 5%, #54c9ff 100%);
+        background-color:#0c8fd5;
+    }
+    .botao:active {
+        position:relative;
+        top:1px;
+    }
+
+
+.container .select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 50%;
+    margin-left: 0px;
+}    .select select {
+    font-family: 'Poppins' sans-serif;
+    font-weight: 500;
+    display: inline-block;
+        width: 200px;
+        cursor: pointer;
+        padding: 10px 20px;
+        outline: 0;
+        border: 3px solid #0c90d5;
+        border-radius: 54px;
+        background: #ffffff;
+        color: #000000;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            color: #000000;
+            background: #ffffff;
+        }
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .select_arrow {
+            position: absolute;
+            top: 16px;
+            right: -175px;
+            pointer-events: none;
+            border-style: solid;
+            border-width: 10px 6px 0px 6px;
+            border-color: #0c90d5 transparent transparent transparent;
+        }
+        .select select:hover ~ .select_arrow,
+        .select select:focus ~ .select_arrow {
+            border-top-color: #0c90d5;
+        }
+        .select select:disabled ~ .select_arrow {
+            border-top-color: #0c90d5;
+        }
