@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.br.acoms.models.Person;
-import com.br.acoms.models.request.PersonCreateRequest;
+import com.br.acoms.models.payload.request.PersonCreateRequest;
 import com.br.acoms.repository.PersonRepository;
 
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.br.acoms.models.request;
+package com.br.acoms.models.payload.request;
 
 import lombok.Data;
 

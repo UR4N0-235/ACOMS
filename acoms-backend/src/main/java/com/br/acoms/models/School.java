@@ -24,9 +24,9 @@ public class School {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name="name" ,unique = true, nullable = false)
     private String name;
 
-    @Column()
+    @Column(name = "enderco")
     private String endereco;    
 }

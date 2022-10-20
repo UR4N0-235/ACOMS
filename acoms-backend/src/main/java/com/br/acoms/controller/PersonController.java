@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.acoms.models.request.PersonCreateRequest;
+import com.br.acoms.models.payload.request.PersonCreateRequest;
 import com.br.acoms.service.PersonService;
 
 import lombok.RequiredArgsConstructor;
