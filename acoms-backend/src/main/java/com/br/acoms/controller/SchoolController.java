@@ -32,7 +32,7 @@ public class SchoolController {
             return ResponseEntity.badRequest().body("Escola ja existe!");
         }
         schoolService.createSchool(schoolCreateRequest);
-        return ResponseEntity.ok("Escola Cadastrada!");
+        return new ResponseEntity<>("Escola criada", HttpStatus.CREATED);
     }
 
     @GetMapping("")
