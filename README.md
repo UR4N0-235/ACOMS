@@ -1,5 +1,8 @@
 <h1 align="center">ACOMS - Acompanhando o saber</h1>
 
+![MicrosoftTeams-image](https://user-images.githubusercontent.com/69969055/197263094-dc819fa6-f033-4c84-b7d8-19dcdaef92e0.png)
+
+
 <p align="center">Sistema desenvolvido como requisito parcial para obter o diploma de tecnico em informatica para internet integrado ao ensino medio.</p>
 
 - ## Oque é
@@ -8,7 +11,7 @@
 
 - ## Funcionamento
 
-Por se tratar de uma RestApi, o projeto é divido em duas partes, o front, responsavel pela visualizacao do cliente, e o backend, responsavel pela comunicacao entre o frontend e a aplicacao que fara a logica do sistema. 
+ Por se tratar de uma RestApi, o projeto é divido em duas partes, o front, responsavel pela visualizacao do cliente, e o backend, responsavel pela comunicacao entre o frontend e a aplicacao que fara a logica do sistema. 
 No GitHub temos três repositorios, dois para o desenvolvimento e um para o sistema funcionando. 
 
 - [Main](https://github.com/UR4N0-235/ACOMS/tree/telinha "a parte do FrontEnd") a juncao do front e o backend 
@@ -16,6 +19,6 @@ No GitHub temos três repositorios, dois para o desenvolvimento e um para o sist
 - [Dev](https://github.com/UR4N0-235/ACOMS/tree/dev "a parte do BackendEnd") onde sera o desenvolvimento do backend
 
 - ## Como usar
- Antes de tudo você presisara ter instalado o maven.
-  - ### No Windows
-  - ### No Linux
+pre-requisitos
+- Java 17
+- Maven 3.6.3
