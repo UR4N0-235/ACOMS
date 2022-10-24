@@ -7,7 +7,7 @@ box-sizing: border-box;
 }
 
 :root{
-    background: linear-gradient(to right, #0c8fd5, #54C9FF); ;
+    background: linear-gradient(to right, #0c8fd5, #54C9FF); 
 }
 
 body{
@@ -15,13 +15,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--default-color);
+    background: linear-gradient(to right, #0c8fd5, #54C9FF);
     padding: 40px;
 }
 
 .container{
     width: 1362px;
-    height: 800px;
+    height: 709px;
     top: 103px;
     left: 46px;
     background: white;
@@ -37,7 +37,7 @@ position: absolute;
 width: 600px;
 height: 300px;
 left: 180px;
-top: 120px;
+top: 100px;
 text-align: center;
 
 font-family: 'Oleo Script', sans-serif;
@@ -55,52 +55,29 @@ color: #0C90D5;
     width: 522px;
     height: 522px;
     left: 200px;
-    top: 250px;
+    top: 200px;
     align-items: center;
 }
 
-.container .login-form .icone{
-   width: 161px;
-}
-.container .login-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    margin-left: 150%;
-    margin-top: -100%;
+.icone{
+   width: 110px;
+   margin-left: 100px;
+   margin-top: -200px;
+   position: fixed;
 }
 
-.container .login-form .title{
-    position: relative
-}
-
-
-.container .login-form .title::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 25px;
-    background-color: var(--default-color);
-}
-
-.container .login-form .input-box{
+.input-box{
     display: flex;
     align-items: center;
     height: 50px;
     width: 100%;
-    margin: 10px 0;
-    position: relative;
-    margin-left: -50px;
-
+    margin-top: 10px;
 }
 .retangulo{
     position: absolute;
     top: 8%;
     left: 50%;
-    height: 750px;
+    height: 660px;
     width: 8px;
   background: linear-gradient(180deg, #54C9FF 0%, #0C90D5 100%);
 
@@ -108,11 +85,8 @@ color: #0C90D5;
 
 }
 
-.container .login-form .input-box input{
-height: 100%;
-outline: none;
+.input-box input{
 border: none;
-padding: 0 30px;
 font-family: 'Poppins' sans-serif;
 font-size: 16px;
 font-weight: 540;
@@ -120,20 +94,20 @@ border-bottom: 5px solid;
 border-bottom-color: #0C90D5;
 }
 
-.container .login-form .input-box .fa-vcard, .fa-lock{
+.fa-vcard, .fa-lock{
         color: #0C90D5;
 }
 
-.esquecer{
+.esquecer, .esquecer:link, .esquecer:visited{
 width: 200px;
 font-family: 'Poppins', sans-serif;
+color: #0c8fd5;
 }
 
  .botao{
         background:linear-gradient(to right, #0c8fd5, #54C9FF);
         background-color:#54c9ff;
-        border-radius:40px;
-        display:inline-block;
+        border-radius:40px;      
         cursor:pointer;
         color:#ffffff;
         font-family:Arial;
@@ -141,12 +115,9 @@ font-family: 'Poppins', sans-serif;
         width: 250px;
         font-size:28px;
         padding:15px 39px;
-        text-decoration:none;
         border: 0px;
-        margin-left: -25px;
-        margin-top: 200px;
-        position: absolute;
     }
+
     .botao:hover {
         background:linear-gradient(to bottom, #0c8fd5 5%, #54c9ff 100%);
         background-color:#0c8fd5;
@@ -157,17 +128,17 @@ font-family: 'Poppins', sans-serif;
     }
 
 
-.container .select {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 15px;
-    width: 50%;
-    margin-left: 0px;
-}    .select select {
-    font-family: 'Poppins' sans-serif;
-    font-weight: 500;
-    display: inline-block;
-        width: 200px;
+
+
+.select select {
+        font-family: 'Poppins' sans-serif;
+        font-weight: 300;
+        font-size: 25px;
+        display: inline-block;
+        width: 250px;
+        height: 65px;
+        margin-left: 10%;
+        margin-top: 30px;
         cursor: pointer;
         padding: 10px 20px;
         outline: 0;
@@ -193,11 +164,11 @@ font-family: 'Poppins', sans-serif;
         }
         .select_arrow {
             position: absolute;
-            top: 16px;
-            right: -175px;
+            top: 55px;
+            right: -100px;
             pointer-events: none;
             border-style: solid;
-            border-width: 10px 6px 0px 6px;
+            border-width: 20px 10px 0px 10px;
             border-color: #0c90d5 transparent transparent transparent;
         }
         .select select:hover ~ .select_arrow,
@@ -207,3 +178,12 @@ font-family: 'Poppins', sans-serif;
         .select select:disabled ~ .select_arrow {
             border-top-color: #0c90d5;
         }
+
+
+#formulario{
+    margin: 0 auto;
+    position: relative;
+    top: 50px;
+    left: 50%;
+
+}
