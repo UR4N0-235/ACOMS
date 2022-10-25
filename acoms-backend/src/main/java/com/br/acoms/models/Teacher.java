@@ -14,5 +14,4 @@ public class Teacher extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "guardian_id", updatable = false)
     private Long id;
-
 }

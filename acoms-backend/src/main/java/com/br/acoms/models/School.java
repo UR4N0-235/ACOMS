@@ -32,8 +32,8 @@ public class School {
     @Column(name="name" ,unique = true, nullable = false)
     private String name;
 
-    @Column(name = "adress")
-    private String adress;    
+    @Column(name = "address")
+    private String address;    
 
     @Column(name = "email")
     private String email;
