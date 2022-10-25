@@ -26,7 +26,7 @@ public class SchoolService {
     
         School createdSchool = new School();
         createdSchool.setName(schoolCreateRequest.getName());
-        createdSchool.setEndereco(schoolCreateRequest.getEndereco());
+        createdSchool.setAddress(schoolCreateRequest.getAddress());
 
         schoolRepository.save(createdSchool);
     }
@@ -45,7 +45,7 @@ public class SchoolService {
             throw new RuntimeException("School not registred!");
 
         loadedSchool.get().setName(schoolUpdateObject.getName());
-        loadedSchool.get().setEndereco(schoolUpdateObject.getEndereco());
+        loadedSchool.get().setAddress(schoolUpdateObject.getAddress());
 
         return schoolRepository.save(loadedSchool.get());
     }
