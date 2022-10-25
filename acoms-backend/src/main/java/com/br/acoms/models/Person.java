@@ -2,14 +2,21 @@ package com.br.acoms.models;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.ManyToAny;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +30,7 @@ import lombok.NoArgsConstructor;
     @UniqueConstraint(name = "person_email_unique", columnNames = "email")
 })
 @Data @AllArgsConstructor @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,4 +62,8 @@ public class Person {
     
     @Column(name = "profilePhoto", columnDefinition = "TEXT")
     private String profilePhoto;
+
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "school_id", nullable = false)
+    private School school;
 }

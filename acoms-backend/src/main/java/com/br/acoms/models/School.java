@@ -1,11 +1,16 @@
 package com.br.acoms.models;
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,6 +32,15 @@ public class School {
     @Column(name="name" ,unique = true, nullable = false)
     private String name;
 
-    @Column(name = "enderco")
-    private String endereco;    
+    @Column(name = "adress")
+    private String adress;    
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "password")
+    private String password;
+
+    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
+    private List<Person> persons;
 }
