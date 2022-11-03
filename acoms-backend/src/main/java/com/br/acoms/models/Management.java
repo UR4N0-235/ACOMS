@@ -26,5 +26,6 @@ public class Management extends Person{
     private long id;
     
     @Column(nullable = false, unique = true)
-    private String rmGestao;
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "rm_management_seq")
+    private String rmManagement;
 }

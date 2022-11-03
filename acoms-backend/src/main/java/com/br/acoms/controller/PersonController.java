@@ -32,15 +32,4 @@ public class PersonController {
         personService.createPerson(personCreateRequest);
         return ResponseEntity.ok("Seja bem vindo!");
     }
-
-    
-    // @PostMapping("/Salvar")
-    // public ResponseEntity<?> savePerson(@RequestBody Optional<Person> pessoa){
-    // if(pessoa.isEmpty()){ return ResponseEntity.badRequest().body("dados
-    // invalidos!"); }
-    // else{
-    // pessoa.get().getSenha(encoder.encode());
-    // }
-    // }
-
 }
