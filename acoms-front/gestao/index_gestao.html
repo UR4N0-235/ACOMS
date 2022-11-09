@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Gestão</title>
+  <link href="http://fonts.cdnfonts.com/css/oleo-script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/gestao/gestao.css">
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="retangulo"></div>
+
+          <div class="col-md-5">
+            <div class="texto">
+              <h1>VOCÊ ESTÁ LOGANDO COMO GESTÃO!</h1>
+          </div>
+            <img src="/images/gestao.svg" alt="login" class="login-card-img">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+                <img src="/images/removebglogo.png" alt="logo" class="logo">
+              </div>
+              <form action="#!">
+                  <div class="form-group">
+                    <div class="select">
+                      <select>
+                          <option>ESCOLA - ETEC</option>
+                          <option>ESCOLA - ANGLO</option>
+                          <option>ESCOLA - EELAS</option>
+                      </select>
+                      <div class="select_arrow"></div>
+                      </div>
+                    <label for="cpf" class="sr-only">cpf</label>
+                    <input type="email" name="cpf" id="cpf" class="form-control" maxlength="14"  autocomplete="off" onkeyup="mascara_cpf()" placeholder="INSIRA O SEU CPF AQUI">
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" name="password" id="senha" class="form-control" placeholder="INSIRA A SENHA AQUI">
+                    <input type="checkbox" onclick="myFunction()">Mostrar a senha
+                  </div>
+                  <p class="login-card-footer-text">Não consegue logar? <a href="#!" class="text-reset">Clique aqui</a></p>
+                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="ENTRAR">
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="/gestao/gestao.js"></script>
+</body>
+</html>
