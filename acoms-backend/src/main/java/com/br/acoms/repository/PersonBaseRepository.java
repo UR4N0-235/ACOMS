@@ -7,5 +7,4 @@ import com.br.acoms.models.Person;
 
 @NoRepositoryBean
 public interface PersonBaseRepository extends JpaRepository<Person, Long>{
- 
 }
