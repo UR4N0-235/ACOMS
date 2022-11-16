@@ -39,7 +39,7 @@ public class RunSeeder {
         private void schoolDataSeeder() {
                 List<School> schools = new ArrayList<>();
                 schools.add(new School("ETEC", "Rua elideo Graces de rezende; numero 130",
-                                "admin@etec.sp.gov.br", encoder.encode("password"), "9090", "(17) 9979382",
+                                "admin@teste.com.br", encoder.encode("admin"), "9090", "(17) 9979382",
                                 "valdete", Date.valueOf("1950-09-20"), "00001",
                                 "(17) 996732", "nothing"));
 
@@ -53,10 +53,10 @@ public class RunSeeder {
                                 "valdete", Date.valueOf("1950-09-20"), "00001",
                                 "(17) 996732", "nothing"));
 
-                schools.add(new School("Teste", "Rua teste; numero teste",
-                                "admin@teste.com.br", encoder.encode("admin"), "892", "(17) 9979382",
-                                "valdete", Date.valueOf("1950-09-20"), "00001",
-                                "(17) 996732", "nothing"));
+                // schools.add(new School("Teste", "Rua teste; numero teste",
+                //                 "admin@teste.com.br", encoder.encode("admin"), "892", "(17) 9979382",
+                //                 "valdete", Date.valueOf("1950-09-20"), "00001",
+                //                 "(17) 996732", "nothing"));
 
                 schoolRepository.saveAll(schools);
         }
