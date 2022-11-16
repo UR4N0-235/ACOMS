@@ -33,6 +33,7 @@ function defineEachFunction(){
 // ######################################
 // # generic functions - internal calls #
 // ######################################
+
 function convertFormToJson(form){
     const array = $(form).serializeArray(); // Encodes the set of form elements as an array of names and values.
     const json = {};
@@ -42,7 +43,7 @@ function convertFormToJson(form){
     return json;
 }
 
-function callAjaxAndReturnPromise(form){
+async function callAjaxAndReturnPromise(form){
     // convert all form datas to json
     // each name will be an key, and value will be... value?
     const bodyData = convertFormToJson(form);
@@ -56,7 +57,8 @@ function callAjaxAndReturnPromise(form){
         header.body = JSON.stringify(bodyData);
     }
     
-    return fetch(form.attr('action'), header);
+    const request =  await fetch(form.attr('action'), header);
+    return request.json();
 }
 
 function simplePushDatasToServer(formData){
@@ -71,7 +73,17 @@ function processLoginRequest(formData){
         console.log("aaaa");
         event.preventDefault();
         callAjaxAndReturnPromise(formData)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((response) => {
+            //console.log(response);
+
+            console.log(response.token);
+        });
     });
+}
+
+// list try
+function tryGetAll(url){
+    var header = {};
+    header.headers = { 'Content-Type' : 'application/json'};
+    fetch(url, header);
 }
