@@ -67,6 +67,10 @@ public class AuthController {
 
     @PostMapping("/schoolLogin")
     public ResponseEntity<?> authenticateSchool(@RequestBody LoginRequest userRequest) {
+        // System.out.println("bateu");
+        // System.out.println("username: " + userRequest.getUsername());
+        // System.out.println("password: " + userRequest.getPassword());
+        
         try {
             Authentication authentication = schoolAuthManager
                     .schoolAuthenticationProvider()
@@ -80,6 +84,8 @@ public class AuthController {
                 String jwt = jwtUtils.generateJwtToken(authentication, userRequest.getUsername(),
                         Roles.MANAGEMENT.toString());
 
+        //        System.out.println("passou JWTGerado : " + jwt);
+        
                 return new ResponseEntity<>(new JwtResponse(jwt,
                         Long.valueOf(1),
                         userRequest.getUsername(), Roles.MANAGEMENT), HttpStatus.OK);

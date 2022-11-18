@@ -11,4 +11,5 @@ import com.br.acoms.models.School;
 public interface SchoolRepository extends JpaRepository<School, Long>{
     Optional<School> findByName(String name);
     Optional<School> findByEmail(String email);
+    Optional<School> findByCnpj(String cnpj);
 }

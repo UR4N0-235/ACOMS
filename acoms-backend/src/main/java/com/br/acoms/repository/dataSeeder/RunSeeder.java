@@ -39,24 +39,24 @@ public class RunSeeder {
         private void schoolDataSeeder() {
                 List<School> schools = new ArrayList<>();
                 schools.add(new School("ETEC", "Rua elideo Graces de rezende; numero 130",
-                                "admin@etec.sp.gov.br", encoder.encode("password"), "9090", "(17) 9979382",
+                                "admin@teste.com.br", encoder.encode("admin"), "13", "(17) 99793823",
                                 "valdete", Date.valueOf("1950-09-20"), "00001",
-                                "(17) 996732", "nothing"));
+                                "(17) 99096732", "nothing"));
 
                 schools.add(new School("Angulo", "Rua limos barros de melo; numero 160",
-                                "admin@angulo.br", encoder.encode("password"), "9090", "(17) 9979382",
-                                "valdete", Date.valueOf("1950-09-20"), "00001",
-                                "(17) 996732", "nothing"));
+                                "admin@angulo.br", encoder.encode("password"), "17", "(17) 997938233",
+                                "valdete", Date.valueOf("1950-09-20"), "00002",
+                                "(17) 99673432", "nothing"));
 
                 schools.add(new School("Objetivo", "Rua dacubinha; numero 154",
-                                "admin@objetivo.com.br", encoder.encode("password"), "9090", "(17) 9979382",
-                                "valdete", Date.valueOf("1950-09-20"), "00001",
-                                "(17) 996732", "nothing"));
+                                "admin@objetivo.com.br", encoder.encode("password"), "22", "(17) 99793824",
+                                "valdete", Date.valueOf("1950-09-20"), "00003",
+                                "(17) 996732321", "nothing"));
 
-                schools.add(new School("Teste", "Rua teste; numero teste",
-                                "admin@teste.com.br", encoder.encode("admin"), "892", "(17) 9979382",
-                                "valdete", Date.valueOf("1950-09-20"), "00001",
-                                "(17) 996732", "nothing"));
+                // schools.add(new School("Teste", "Rua teste; numero teste",
+                //                 "admin@teste.com.br", encoder.encode("admin"), "892", "(17) 9979382",
+                //                 "valdete", Date.valueOf("1950-09-20"), "00001",
+                //                 "(17) 996732", "nothing"));
 
                 schoolRepository.saveAll(schools);
         }

@@ -55,7 +55,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         //http.authenticationProvider(multipleSecurityController.schoolProvider());
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-        http.csrf().disable()
+        http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
