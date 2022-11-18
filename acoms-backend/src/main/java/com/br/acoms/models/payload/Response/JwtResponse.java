@@ -11,6 +11,7 @@ public class JwtResponse {
     private Long id;
     private String username;
     private Roles role;
+    private int defaultDaysToExpire = 1;
 
     public JwtResponse(String token, Long id, String username, Roles role) {
         this.token = token;

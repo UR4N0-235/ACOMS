@@ -29,6 +29,10 @@ public class SchoolService {
         return schoolRepository.findByName(name);
     }
 
+    public Optional<School> readByCnpj(String cpf){
+        return schoolRepository.findByCnpj(cpf);
+    }
+
     public void createSchool(SchoolRequest schoolCreateRequest) {
         Optional<School> byName = schoolRepository.findByName(schoolCreateRequest.getName());
         if (byName.isPresent())

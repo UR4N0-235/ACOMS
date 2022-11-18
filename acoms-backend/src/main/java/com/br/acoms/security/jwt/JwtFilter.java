@@ -35,6 +35,7 @@ public class JwtFilter extends OncePerRequestFilter {
             throws IOException, ServletException {
         try {
             String jwt = jwtUtils.parseJwt(request);
+            System.out.println("recebi isso = " + jwt);
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
                 String username = jwtUtils.getUserNameFromJwtToken(jwt);
 

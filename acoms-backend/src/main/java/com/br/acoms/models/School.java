@@ -42,7 +42,7 @@ public class School {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @Column(name = "status")
@@ -52,10 +52,10 @@ public class School {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "cnpj")
+    @Column(name = "cnpj", unique = true, updatable = false, nullable = false)
     private String cnpj;
 
-    @Column(name = "telephoneNumber")
+    @Column(name = "telephoneNumber", unique = true, nullable = false)
     private String telephoneNumber;
 
     // start management
@@ -65,7 +65,7 @@ public class School {
     @Column(name = "dateOfBirthdayManagement")
     private Date dateOfBirthdayManagement;
 
-    @Column(name = "cpfManagement")
+    @Column(name = "cpfManagement", unique = true, nullable = false)
     private String cpfManagement;
 
     @Column(name = "telephoneNumberManagement")

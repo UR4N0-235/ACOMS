@@ -18,9 +18,9 @@ public class SchoolUserDetailsService implements UserDetailsService {
     private final SchoolService schoolService;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String cnpj) throws UsernameNotFoundException {
 
-        Optional<School> school = schoolService.readByEmailSchool(email);
+        Optional<School> school = schoolService.readByCnpj(cnpj);
 
         if (school.isEmpty())
             throw new UsernameNotFoundException("No user found with the given email");

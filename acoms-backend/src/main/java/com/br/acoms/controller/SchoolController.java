@@ -31,7 +31,7 @@ public class SchoolController {
     @GetMapping("coordinators")
     public ResponseEntity<List<Coordinator>> listAllCoordinator(HttpServletRequest request){
         String jwt = jwtUtils.parseJwt(request);
-        Optional<School> isValidSchool = schoolService.readByEmailSchool(jwtUtils.getUserNameFromJwtToken(jwt));
+        Optional<School> isValidSchool = schoolService.readByCnpj(jwtUtils.getUserNameFromJwtToken(jwt));
         
         if(isValidSchool.isEmpty()) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         
@@ -40,6 +40,12 @@ public class SchoolController {
 
         List<Coordinator> r = coordinatorService.convertPersonToCoordinator(whoami.getPersons());
         return new ResponseEntity<>(r,HttpStatus.OK);
+    }
+
+    @GetMapping("/oi")
+    public ResponseEntity<String> oi(){
+        System.out.println("ta, bateu");
+        return new ResponseEntity<>("oi", HttpStatus.OK);
     }
 
 }
