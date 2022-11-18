@@ -1,11 +1,14 @@
 package com.br.acoms.models.payload.request;
 
+import com.br.acoms.models.School;
+
 import lombok.Data;
 
 @Data
-public class PersonCreateRequest {
+public abstract class PersonRequest {
     private String name;
-    private String email;
     private String cpf;
+    private String email;
     private String password;
+    private School school;
 }
