@@ -11,10 +11,12 @@ public class JwtResponse {
     private String username;
     private Roles role;
     private int defaultDaysToExpire = 1;
+    private String path;
 
-    public JwtResponse(String token, String username, Roles role) {
+    public JwtResponse(String token, String username, Roles role, String path) {
         this.token = token;
         this.username = username;
         this.role = role;
+        this.path = path;
     }   
 }
