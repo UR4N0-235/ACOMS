@@ -47,12 +47,26 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         http.authorizeRequests()
                 .antMatchers("/admin/**")
                 .hasRole(Roles.ADMIN.toString());
-        //http.authenticationProvider(multipleSecurityController.adminProvider());
 
         http.authorizeRequests()
                 .antMatchers("/school/**")
                 .hasRole(Roles.MANAGEMENT.toString());
-        //http.authenticationProvider(multipleSecurityController.schoolProvider());
+
+        http.authorizeRequests()
+                .antMatchers("/coordinator/**")
+                .hasRole(Roles.COORDINATOR.toString());
+
+        http.authorizeRequests()
+                .antMatchers("/guardian/**")
+                .hasRole(Roles.GUARDIAN.toString());
+
+        http.authorizeRequests()
+                .antMatchers("/teacher/**")
+                .hasRole(Roles.TEACHER.toString());
+
+        http.authorizeRequests()
+                .antMatchers("/student/**")
+                .hasRole(Roles.STUDENT.toString());
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         http.cors().and().csrf().disable()

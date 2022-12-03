@@ -44,6 +44,7 @@ public class JwtUtils {
 
   public boolean validateJwtToken(String authToken) {
     try {
+      // System.out.println( "authtoken == " + authToken);
       Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
       return true;
     } catch (SignatureException e) {
@@ -62,7 +63,8 @@ public class JwtUtils {
 
   public String parseJwt(HttpServletRequest request) {
     String headerAuth = request.getHeader("Authorization");
-    System.out.println("filred this = " + headerAuth);
+    // System.out.println("parsed header token "+headerAuth);
+    //System.out.println("filred this = " + headerAuth);
     if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
         return headerAuth.substring(7, headerAuth.length());
     }

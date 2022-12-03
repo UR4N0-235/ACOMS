@@ -20,6 +20,8 @@ import com.br.acoms.models.Roles;
 import com.br.acoms.models.payload.Response.JwtResponse;
 import com.br.acoms.models.payload.request.LoginRequest;
 import com.br.acoms.security.adminSecurity.AdminSecurity;
+import com.br.acoms.security.coordinatorSecurity.CoordinatorSecurity;
+import com.br.acoms.security.guardianSecurity.GuardianSecurity;
 import com.br.acoms.security.jwt.JwtUtils;
 import com.br.acoms.security.schoolSecurity.SchoolSecurity;
 
@@ -33,6 +35,12 @@ public class AuthController {
 
     @Autowired
     private SchoolSecurity schoolAuthManager;
+
+    @Autowired
+    private GuardianSecurity guardianAuthManager;
+
+    @Autowired
+    private CoordinatorSecurity coordinatorAuthManager;
 
     @Autowired
     JwtUtils jwtUtils;
@@ -54,7 +62,6 @@ public class AuthController {
                         Roles.ADMIN.toString());
 
                 return new ResponseEntity<>(new JwtResponse(jwt,
-                        Long.valueOf(1),
                         userRequest.getUsername(), Roles.ADMIN), HttpStatus.OK);
             }
             // em caso de badCredentials = nao para o servidor, retorna http status 401
@@ -87,8 +94,77 @@ public class AuthController {
         //        System.out.println("passou JWTGerado : " + jwt);
         
                 return new ResponseEntity<>(new JwtResponse(jwt,
-                        Long.valueOf(1),
                         userRequest.getUsername(), Roles.MANAGEMENT), HttpStatus.OK);
+            }
+            // em caso de badCredentials = nao para o servidor, retorna http status 401
+        } catch (BadCredentialsException bad) {
+            return new ResponseEntity<>("Failed", HttpStatus.UNAUTHORIZED);
+        } catch (HttpMessageNotReadableException notCorrect) {
+            return new ResponseEntity<>("Error on getting userInformation", HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>("Failed", HttpStatus.UNAUTHORIZED);
+    }
+
+
+    @PostMapping("/guardianLogin")
+    public ResponseEntity<?> authenticateGuardian(@RequestBody LoginRequest userRequest) {
+        // System.out.println("bateu");
+        // System.out.println("username: " + userRequest.getUsername());
+        // System.out.println("password: " + userRequest.getPassword());
+        
+        try {
+            Authentication authentication = guardianAuthManager
+                    .guardianAuthenticationProvider()
+                    .authenticate(
+                            new UsernamePasswordAuthenticationToken(
+                                    userRequest.getUsername(),
+                                    userRequest.getPassword()));
+            if (authentication != null && !(authentication instanceof AnonymousAuthenticationToken)
+                    && authentication.isAuthenticated()) {
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+                String jwt = jwtUtils.generateJwtToken(authentication, userRequest.getUsername(),
+                        Roles.GUARDIAN.toString());
+
+            //    System.out.println("passou JWTGerado : " + jwt);
+        
+                return new ResponseEntity<>(new JwtResponse(jwt,
+                        userRequest.getUsername(), Roles.GUARDIAN), HttpStatus.OK);
+            }
+            // em caso de badCredentials = nao para o servidor, retorna http status 401
+        } catch (BadCredentialsException bad) {
+            return new ResponseEntity<>("Failed", HttpStatus.UNAUTHORIZED);
+        } catch (HttpMessageNotReadableException notCorrect) {
+            return new ResponseEntity<>("Error on getting userInformation", HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>("Failed", HttpStatus.UNAUTHORIZED);
+    }
+
+
+    @PostMapping("/coordinatorLogin")
+    public ResponseEntity<?> authenticateCoordinator(@RequestBody LoginRequest userRequest) {
+        // System.out.println("bateu");
+        // System.out.println("username: " + userRequest.getUsername());
+        // System.out.println("password: " + userRequest.getPassword());
+        
+        try {
+            Authentication authentication = coordinatorAuthManager
+                    .coordinatorAuthenticationProvider()
+                    .authenticate(
+                            new UsernamePasswordAuthenticationToken(
+                                    userRequest.getUsername(),
+                                    userRequest.getPassword()));
+            if (authentication != null && !(authentication instanceof AnonymousAuthenticationToken)
+                    && authentication.isAuthenticated()) {
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+                String jwt = jwtUtils.generateJwtToken(authentication, userRequest.getUsername(),
+                        Roles.COORDINATOR.toString());
+
+            //    System.out.println("passou JWTGerado : " + jwt);
+        
+                return new ResponseEntity<>(new JwtResponse(jwt,
+                        userRequest.getUsername(), Roles.COORDINATOR), HttpStatus.OK);
             }
             // em caso de badCredentials = nao para o servidor, retorna http status 401
         } catch (BadCredentialsException bad) {

@@ -14,7 +14,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.br.acoms.security.MultipleSecurityController;
@@ -35,9 +34,14 @@ public class JwtFilter extends OncePerRequestFilter {
             throws IOException, ServletException {
         try {
             String jwt = jwtUtils.parseJwt(request);
-            System.out.println("recebi isso = " + jwt);
+            // System.out.println("jwtFilter.doFilter jwtValue = " + jwt);
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
                 String username = jwtUtils.getUserNameFromJwtToken(jwt);
+
+                // System.out.println("########################");
+                // System.out.println("Passou pelo filtro + username == " + username);
+                // System.out.println("########################");
+
 
                 UserDetails userDetails = securityController.defineUserDetails(username);
 
