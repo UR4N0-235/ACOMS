@@ -43,7 +43,7 @@ public class Chat {
     private Guardian guardian;
     
     @JsonBackReference
-    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Message> messages;
 
     public Chat(Coordinator coordinator, Guardian guardian) {

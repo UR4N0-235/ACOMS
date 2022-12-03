@@ -23,6 +23,7 @@ import com.br.acoms.repository.CoordinatorRepository;
 import com.br.acoms.repository.GuardianRepository;
 import com.br.acoms.repository.MessageRepository;
 import com.br.acoms.repository.SchoolRepository;
+import com.br.acoms.service.ChatService;
 import com.br.acoms.service.CoordinatorService;
 import com.br.acoms.service.GuardianService;
 
@@ -42,6 +43,7 @@ public class RunSeeder {
 
         private final CoordinatorService coordinatorService;
         private final GuardianService guardianService;
+        private final ChatService chatService;
 
         @EventListener
         public void seed(ContextRefreshedEvent event) {
@@ -49,8 +51,25 @@ public class RunSeeder {
                 coordinatorDataSeeder();
                 guardianDataSeeder();
                 chatDataSeeder();
+                testerrr();
 
                 System.out.println("Database seeder done");
+        }
+        public void testerrr(){
+                School escola = schoolRepository.findById(Long.valueOf(1)).get();
+                // for(Guardian guardian : guardianService.getAllBySchool(escola)){                       
+                //         System.out.println(guardian.getEmail());
+                // }
+
+                Coordinator coordinator = coordinatorService
+                .convertPersonToCoordinator(escola.getPersons()).get(0);
+
+                List<Chat> chats = chatService.getAllByCoordinator(coordinator);
+                for(Chat chat : chats){
+                        for(Message mensagem : chat.getMessages()){
+                                System.out.println(mensagem.getMessage());
+                        }
+                }
         }
 
         private void schoolDataSeeder() {

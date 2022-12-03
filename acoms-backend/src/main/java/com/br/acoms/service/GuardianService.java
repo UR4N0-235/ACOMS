@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.br.acoms.models.Guardian;
 import com.br.acoms.models.Person;
+import com.br.acoms.models.School;
 import com.br.acoms.repository.GuardianRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,6 @@ public class GuardianService {
     }
 
     public List<Guardian> convertPersonToGuardian(List<Person> persons) {
-        System.out.println("guardian service");
         List<Guardian> guardians = new ArrayList<>();
         
         for (Person person : persons) {
@@ -40,5 +40,10 @@ public class GuardianService {
         }
 
         return guardians;
+    }
+
+    public List<Guardian> getAllBySchool(School school){
+        if(guardianRepository.findBySchool(school).isEmpty()) return null;
+        return guardianRepository.findBySchool(school).get();
     }
 }
