@@ -1,6 +1,6 @@
 package com.br.acoms.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,10 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -62,6 +65,7 @@ public class School {
     @Column(name = "nameManagement")
     private String nameManagement;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "dateOfBirthdayManagement")
     private Date dateOfBirthdayManagement;
 
@@ -74,9 +78,9 @@ public class School {
     @Column(name ="aditionalManagement")
     private String aditionalManagement;
     // end management
-
+    
     @JsonBackReference
-    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Person> persons;
 
     public School(String name, String address, String email, String password, String cnpj, String telephoneNumber,

@@ -1,6 +1,6 @@
 package com.br.acoms.models;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,8 +17,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -50,22 +54,28 @@ public abstract class Person {
     
     @Column(name = "cpf", unique = true, nullable = false, columnDefinition = "TEXT")
     private String cpf;
-    
-    @Column(name = "email", unique = true, nullable = false, columnDefinition = "TEXT")
-    private String email;
-    
-    @Column(name = "password", nullable = false, columnDefinition = "TEXT")
-    private String password;
-    
+
+    @Temporal(TemporalType.DATE)
     @Column(name = "dateOfBirthday", columnDefinition = "TEXT")
     private Date dateOfBirthday;
     
     @Column(name = "telephoneNumber", columnDefinition = "TEXT")
     private String telephoneNumber;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "email", unique = true, nullable = false, columnDefinition = "TEXT")
+    private String email;
+    
+    @JsonIgnore
+    @Column(name = "password", nullable = false, columnDefinition = "TEXT")
+    private String password;
     
     @Column(name = "profilePhoto", columnDefinition = "TEXT")
     private String profilePhoto;
 
+    @JsonIgnoreProperties("hibernateLazyInitializer")
     @JsonManagedReference
     @ManyToOne(cascade = CascadeType.REMOVE, optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_school")
@@ -76,7 +86,7 @@ public abstract class Person {
     private Roles role;
 
     public Person(String name, String cpf, String email, String password, Date dateOfBirthday, String telephoneNumber,
-            String profilePhoto, School school, Roles role) {
+            String profilePhoto, School school, Roles role, String address) {
         this.name = name;
         this.cpf = cpf;
         this.email = email;
@@ -86,5 +96,6 @@ public abstract class Person {
         this.profilePhoto = profilePhoto;
         this.school = school;
         this.role = role;
+        this.address = address;
     }
 }
