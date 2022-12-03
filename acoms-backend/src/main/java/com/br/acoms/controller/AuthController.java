@@ -62,7 +62,7 @@ public class AuthController {
                         Roles.ADMIN.toString());
 
                 return new ResponseEntity<>(new JwtResponse(jwt,
-                        userRequest.getUsername(), Roles.ADMIN), HttpStatus.OK);
+                        userRequest.getUsername(), Roles.ADMIN, "admin"), HttpStatus.OK);
             }
             // em caso de badCredentials = nao para o servidor, retorna http status 401
         } catch (BadCredentialsException bad) {
@@ -94,7 +94,7 @@ public class AuthController {
         //        System.out.println("passou JWTGerado : " + jwt);
         
                 return new ResponseEntity<>(new JwtResponse(jwt,
-                        userRequest.getUsername(), Roles.MANAGEMENT), HttpStatus.OK);
+                        userRequest.getUsername(), Roles.MANAGEMENT, "school"), HttpStatus.OK);
             }
             // em caso de badCredentials = nao para o servidor, retorna http status 401
         } catch (BadCredentialsException bad) {
@@ -129,7 +129,7 @@ public class AuthController {
             //    System.out.println("passou JWTGerado : " + jwt);
         
                 return new ResponseEntity<>(new JwtResponse(jwt,
-                        userRequest.getUsername(), Roles.GUARDIAN), HttpStatus.OK);
+                        userRequest.getUsername(), Roles.GUARDIAN, "guardian"), HttpStatus.OK);
             }
             // em caso de badCredentials = nao para o servidor, retorna http status 401
         } catch (BadCredentialsException bad) {
@@ -164,7 +164,7 @@ public class AuthController {
             //    System.out.println("passou JWTGerado : " + jwt);
         
                 return new ResponseEntity<>(new JwtResponse(jwt,
-                        userRequest.getUsername(), Roles.COORDINATOR), HttpStatus.OK);
+                        userRequest.getUsername(), Roles.COORDINATOR, "coordinator"), HttpStatus.OK);
             }
             // em caso de badCredentials = nao para o servidor, retorna http status 401
         } catch (BadCredentialsException bad) {
