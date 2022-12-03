@@ -1,0 +1,9 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+	"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32">
+  <title>Bang icon 32x32</title>
+  <desc>Icon-Black exclamation point in an orange background</desc> 
+  <rect x="0" y="0" width="32" height="32" fill="#FFA500" />
+  <line x1="16" y1="10" x2="16" y2="18" stroke-linecap="round" stroke="#000" stroke-width="4" />
+  <circle cx="16" cy="23" r="2" />
+</svg>
