@@ -61,15 +61,15 @@ public class RunSeeder {
                 //         System.out.println(guardian.getEmail());
                 // }
 
-                Coordinator coordinator = coordinatorService
-                .convertPersonToCoordinator(escola.getPersons()).get(0);
+                // Coordinator coordinator = coordinatorService
+                // .convertPersonToCoordinator(escola.getPersons()).get(0);
 
-                List<Chat> chats = chatService.getAllByCoordinator(coordinator);
-                for(Chat chat : chats){
-                        for(Message mensagem : chat.getMessages()){
-                                System.out.println(mensagem.getMessage());
-                        }
-                }
+                // List<Chat> chats = chatService.getAllByCoordinator(coordinator);
+                // for(Chat chat : chats){
+                //         for(Message mensagem : chat.getMessages()){
+                //                 System.out.println(mensagem.getMessage());
+                //         }
+                // }
         }
 
         private void schoolDataSeeder() {
