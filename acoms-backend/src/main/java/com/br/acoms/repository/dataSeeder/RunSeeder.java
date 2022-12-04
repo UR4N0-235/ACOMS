@@ -18,11 +18,13 @@ import com.br.acoms.models.Guardian;
 import com.br.acoms.models.Message;
 import com.br.acoms.models.Roles;
 import com.br.acoms.models.School;
+import com.br.acoms.models.Student;
 import com.br.acoms.repository.ChatRepository;
 import com.br.acoms.repository.CoordinatorRepository;
 import com.br.acoms.repository.GuardianRepository;
 import com.br.acoms.repository.MessageRepository;
 import com.br.acoms.repository.SchoolRepository;
+import com.br.acoms.repository.StudentRepository;
 import com.br.acoms.service.ChatService;
 import com.br.acoms.service.CoordinatorService;
 import com.br.acoms.service.GuardianService;
@@ -40,6 +42,7 @@ public class RunSeeder {
         private final GuardianRepository guardianRepository;
         private final ChatRepository chatRepository;
         private final MessageRepository messageRepository;
+        private final StudentRepository studentRepository;
 
         private final CoordinatorService coordinatorService;
         private final GuardianService guardianService;
@@ -51,14 +54,16 @@ public class RunSeeder {
                 coordinatorDataSeeder();
                 guardianDataSeeder();
                 chatDataSeeder();
+                studentDataSeeder();
                 testerrr();
 
                 System.out.println("Database seeder done");
         }
-        public void testerrr(){
+
+        public void testerrr() {
                 School escola = schoolRepository.findById(Long.valueOf(1)).get();
-                // for(Guardian guardian : guardianService.getAllBySchool(escola)){                       
-                //         System.out.println(guardian.getEmail());
+                // for(Guardian guardian : guardianService.getAllBySchool(escola)){
+                // System.out.println(guardian.getEmail());
                 // }
 
                 // Coordinator coordinator = coordinatorService
@@ -66,9 +71,9 @@ public class RunSeeder {
 
                 // List<Chat> chats = chatService.getAllByCoordinator(coordinator);
                 // for(Chat chat : chats){
-                //         for(Message mensagem : chat.getMessages()){
-                //                 System.out.println(mensagem.getMessage());
-                //         }
+                // for(Message mensagem : chat.getMessages()){
+                // System.out.println(mensagem.getMessage());
+                // }
                 // }
         }
 
@@ -200,7 +205,8 @@ public class RunSeeder {
                                                 Date.valueOf(LocalDate.now()),
                                                 chat, Message.EnviadoPor.RESPONSAVEL));
 
-                                mensagens.add(new Message("meus sentimentos, espero que melhore logo, seu filho é um otimo aluno!",
+                                mensagens.add(new Message(
+                                                "meus sentimentos, espero que melhore logo, seu filho é um otimo aluno!",
                                                 Date.valueOf(LocalDate.now()),
                                                 chat, Message.EnviadoPor.COORDENADOR));
 
@@ -211,5 +217,28 @@ public class RunSeeder {
                 } else {
                         System.out.println("puts caiu nesse if");
                 }
+        }
+
+        private void studentDataSeeder() {
+                School escola = schoolRepository.findById(Long.valueOf(1)).get();
+                List<Guardian> guardians = guardianRepository.findBySchool(escola).get();
+
+                if (guardians != null) {
+                        List<Guardian> guardians1 = new ArrayList<>();
+                        guardians1.add(guardians.get(0));
+                        List<Student> childrens = new ArrayList<>();
+
+                        childrens.add(new Student("matheus", "10", "matheus.fernandes92.235@protonmail.com",
+                                        encoder.encode("password"), Date.valueOf("2004-09-02"), "(17) 99673-67329",
+                                        null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                        guardians1, Long.valueOf(1)));
+                        childrens.add(new Student("gabriel", "11", "gabriel@protonmail.com",
+                                        encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-67330",
+                                        null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                        guardians1, Long.valueOf(2)));
+
+                        studentRepository.saveAll(childrens);
+                }
+
         }
 }

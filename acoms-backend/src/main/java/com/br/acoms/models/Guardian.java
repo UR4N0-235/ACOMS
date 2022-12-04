@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -31,6 +33,7 @@ public class Guardian extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "rm_guardian_seq")
     private Long rmGuardian;
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(
         name = "responsability",
@@ -39,6 +42,7 @@ public class Guardian extends Person{
     )
     private List<Student> childrens;
 
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "guardian")
     private Chat chat;
 

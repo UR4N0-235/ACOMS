@@ -38,6 +38,7 @@ public class Chat {
     @JoinColumn(name = "id_coordinator")
     private Coordinator coordinator;
     
+    @JsonManagedReference
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_guardian", nullable = false, unique = true)
     private Guardian guardian;

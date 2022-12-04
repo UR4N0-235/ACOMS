@@ -1,5 +1,6 @@
 package com.br.acoms.models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table
+@Table(name = "student")
 @Getter @Setter @RequiredArgsConstructor
 public class Student extends Person{
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +27,15 @@ public class Student extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rmStudent;
 
-    @ManyToMany(mappedBy = "childrens")
+    @ManyToMany(mappedBy = "student")
     private List<Guardian> parents;
+
+    public Student(String name, String cpf, String email, String password, Date dateOfBirthday, String telephoneNumber,
+            String profilePhoto, School school, Roles role, String address, List<Guardian> parents, Long rmStudent) {
+        super(name, cpf, email, password, dateOfBirthday, telephoneNumber, profilePhoto, school, role, address);
+        this.parents = parents;
+        this.rmStudent = rmStudent;
+    }
+
+    
 }
