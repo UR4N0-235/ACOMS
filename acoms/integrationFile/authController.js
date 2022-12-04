@@ -24,7 +24,8 @@ function defineLogoutButtons(){
             event.preventDefault();
             logOut();
             let redirectTo = 'http://127.0.0.1:5500/paginas/landingpage/landingpage.html';
-            window.location.replace(redirectTo);
+            console.log(`now document.cookie == ` + document.cookie)
+            //window.location.replace(redirectTo);
         })
     });
 }
@@ -58,7 +59,7 @@ function getAuthCookie(){
 
 async function logOut(){
     await fetch(`http://${getIpServer()}:8080/logout`);
-    document.cookie = "ACOMs_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";;
+    document.cookie = "ACOMs_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
 function verifyHrefNecessaryAuth(){
