@@ -26,8 +26,16 @@
                 <div class="contact">
                     <form action="">
                         <h3>LOGAR</h3>
-                        <input type="text" placeholder="RM DE ALUNO">
-                        <input type="text" placeholder="SENHA">
+                        <span id="errologin" style="color: red; display: none;">login invalido! tente novamente</span>
+
+                        <input name="username" type="text" placeholder="RM DE ALUNO">
+                        <input id="password" name="password" type="password" placeholder="SENHA">
+                        
+                        <div style="display:flex; justify-content: flex-start;">
+							<input style="width: 10px" type="checkbox" onclick="myFunction()">
+							<span>Show Password</span>							
+						</div>
+						
                         <button formaction="/paginas/aluno/aluno.html" class="submit">ENTRAR</button>
                     </form>
                 </div>
@@ -43,6 +51,11 @@
             </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/integrationFile/integration.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="../loginFunctions.js"></script>
 </body>
 
 </html>
