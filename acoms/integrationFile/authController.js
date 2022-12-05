@@ -39,7 +39,7 @@ function saveAuthCookie(auth){
         d.setTime(d.getTime() + (auth.defaultDaysToExpire * 24 * 60 * 60 * 1000));
         let expires = "expires="+d.toUTCString();
         
-        document.cookie = `ACOMs_auth=${auth.token};${expires};path=/;`;
+        document.cookie = `ACOMs_auth=${auth.token};${expires};path=/;SameSite=None; Secure;`;
     }
 
 function getAuthCookie(){
@@ -69,6 +69,7 @@ function verifyHrefNecessaryAuth(){
 
     if(url.startsWith("/paginas/responsavel")){
         $('head').append('<script src="/integrationFile/isolateControllers/guardian.js"></script>');
+        console.log("testeeee");
     }
 
     // exemples : 
