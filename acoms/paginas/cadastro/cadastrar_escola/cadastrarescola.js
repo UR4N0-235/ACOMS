@@ -12,7 +12,7 @@ nextBtns.forEach((btn) => {
     formStepsNum++;
     updateFormSteps();
     updateProgressbar();
-   
+
   });
 });
 
@@ -21,7 +21,7 @@ prevBtns.forEach((btn) => {
     formStepsNum--;
     updateFormSteps();
     updateProgressbar();
-    
+
   });
 });
 
@@ -38,23 +38,23 @@ function updateProgressbar() {
   progressSteps.forEach((progressStep, idx) => {
     if (idx < formStepsNum + 1) {
       progressStep.classList.add("progress-step-active");
-      
+
     } else {
       progressStep.classList.remove("progress-step-active");
-   
+
     }
   });
 
   progressSteps.forEach((progressStep, idx) => {
     if (idx < formStepsNum) {
-      
+
       progressStep.classList.add("progress-step-check");
     } else {
-   
+
       progressStep.classList.remove("progress-step-check");
     }
   });
- 
+
   const progressActive = document.querySelectorAll(".progress-step-active");
 
   progress.style.width =
@@ -64,17 +64,30 @@ function updateProgressbar() {
 
 document.getElementById("submit-form").addEventListener("click", function () {
 
-    progressSteps.forEach((progressStep, idx) => {
+  progressSteps.forEach((progressStep, idx) => {
     if (idx <= formStepsNum) {
-      
+
       progressStep.classList.add("progress-step-check");
     } else {
-   
+
       progressStep.classList.remove("progress-step-check");
     }
   });
-  
-   var forms = document.getElementById("forms");
-   forms.classList.remove("form");
-   forms.innerHTML = '<div class="welcome"><div class="content"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg><h2>Obrigado pelos dados!</h2><span>Entraremos em contato em breve!</span><div></div>';
+
+  var forms = document.getElementById("forms");
+  forms.classList.remove("form");
+  forms.innerHTML = `
+   <div class="welcome">
+    <div class="content">
+      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      </svg>
+      <h2>Obrigado pelos dados!</h2>
+      <span>Entraremos em contato em breve!</span>
+      <br> <br> <br>
+      <button onclick="location.href='/paginas/landingpage/landingpage.html'">Voltar para a página inicial
+      </button>
+    </div>
+   </div>
+   `;
 });

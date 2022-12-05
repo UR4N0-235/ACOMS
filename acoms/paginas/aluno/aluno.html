@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="icon" href="/img/logomarca.png">
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do aluno</title>
- 
-    <link rel="stylesheet" href="/paginas/aluno/aluno.css">
-    <link rel="stylesheet" href="/paginas/evento/evento-navbar.css">
-    
-    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css.map">
-    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.rtl.min.css.map">
-    <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo-white.svg">
-    <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo.svg">
- 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do aluno</title>
+
+  <link rel="stylesheet" href="/paginas/aluno/aluno.css">
+  <link rel="stylesheet" href="/paginas/navbar/navbar.css">
+
+  <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css.map">
+  <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.rtl.min.css.map">
+  <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo-white.svg">
+  <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo.svg">
+
+  <link rel="stylesheet" href="/paginas/navbar/style.css">
+
 </head>
+
 <body id="body">
   <script src="/integrationFile/waitLoad.js"></script>
 
-  <header>
+  <header id="cabeca">
     <img src="/img/logofull.png" alt="brand" id="logofull">
     <div class="menu">
       <div class="btn">
@@ -31,7 +33,7 @@
       <a href="/paginas/aluno/aluno.html">INICIO</a>
       <a href="/paginas/boletim/boletim.html">BOLETIM</a>
       <a href="/paginas/comunicados/comunicados.html">COMUNICADOS</a>
-      <a href="/paginas/calendario/calender.html">CALENDÁRIO</a>
+      <a href="/paginas/calendario/calendario.html">CALENDÁRIO</a>
       <a href="/paginas/evento/evento.html">EVENTOS</a>
       <a href="/paginas/login/login_aluno/loginaluno.html">SAIR</a>
     </div>
@@ -39,52 +41,51 @@
       <i class="fas fa-bars menu-btn"></i>
     </div>
   </header>
-  
-    <div class="main-body">
-  
-      <div class="row gutters-sm">
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex flex-column align-items-center text-center">
-                <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle"
-                  width="150">
-                <div class="mt-3">
-                  <h4>Roberto</h4>
-                  <b class="text-secondary mb-1" font="black">Aluno</b> <br>
-                  <b class="text-secondary mb-1" font="black">Vinculado ao responsável: Silvio</b>
-                  <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
-                  <p class="text-muted font-size-sm">RM: 12345</p>
-                  <p class="text-muted font-size-sm">Série: 3° ano</p>
-                  <button class="btn btn-primary">Editar Perfil</button>
-                  <button onclick="location.href='/paginas/boletim/boletim.html'" class="btn btn-outline-primary">Ver Boletim</button>
-                </div>
+
+  <div class="main-body">
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle"
+                width="150">
+              <div class="mt-3" style="font-size: 16px;">
+                <h4 style="font-size: 24px;">Roberto</h4>
+                <b class="text-secondary mb-1" font="black">Aluno</b> <br>
+                <b class="text-secondary mb-1" font="black">Vinculado ao responsável: Silvio</b>
+                <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
+                <p class="text-muted font-size-sm">RM: 12345</p>
+                <p class="text-muted font-size-sm">Série: 3° ano</p>
+                <button class="btn btn-primary" style="font-size: 16px; padding: 5px 13px 5px 13px;">Editar
+                  Perfil</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-8">
-  
-              <div class="mb">
-  
-                <div class="card mb-3" id="div-informacao">
-  
-                <h1>NOTÍCIAS MAIS RECENTES DA ESCOLA:</h1>
-  
-  
-            </div>
-  
+      </div>
+      <div class="col-md-8">
+
+        <div class="mb">
+
+          <div class="card mb-3" id="div-informacao">
+
             
-  
-  
           </div>
-  
-  
+
+
+
+
         </div>
+
+
       </div>
     </div>
-    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
-  
-  </body>
+  </div>
+  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
+
+</body>
+
 </html>
