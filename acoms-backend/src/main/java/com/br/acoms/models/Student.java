@@ -27,7 +27,7 @@ public class Student extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rmStudent;
 
-    @ManyToMany(mappedBy = "student")
+    @ManyToMany(mappedBy = "childrens")
     private List<Guardian> parents;
 
     public Student(String name, String cpf, String email, String password, Date dateOfBirthday, String telephoneNumber,
