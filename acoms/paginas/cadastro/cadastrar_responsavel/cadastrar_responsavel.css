@@ -1,0 +1,103 @@
+#body {
+  background-image: linear-gradient(to right, #294091, #089bdf);
+}
+
+.main-body {
+  padding: 15px 15px 0px 15px;
+}
+
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+  height: 600px;
+}
+
+.gutters-sm>[class*=col-md-4] {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.col-md-8 {
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  height: 600px;
+  right: 10px;
+}
+
+#div-informacao {
+  margin-top: 10px;
+  padding: 10px 10px 0px 10px;
+}
+
+.button_plus {
+  border-radius: 30px;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  cursor: pointer;
+  border: 3px solid #089bdf;
+
+  /* Mittig */
+  top: 90%;
+  left: 95%;
+}
+
+.button_plus:after {
+  content: '';
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 4px;
+  width: 50%;
+  background: #089bdf;
+  top: 50%;
+  left: 50%;
+}
+
+.button_plus:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #089bdf;
+  height: 50%;
+  width: 4px;
+}
+
+.button_plus:hover:before,
+.button_plus:hover:after {
+  background: #fff;
+  transition: 0.2s;
+}
+
+.button_plus:hover {
+  background-color: #089bdf;
+  transition: 0.2s;
+}
+h1{
+  margin-left: 10%;
+  text-align: center;
+  color: #fff;
+  -webkit-text-stroke: 2px #0000;
+  text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+  }

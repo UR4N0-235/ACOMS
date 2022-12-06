@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área do aluno</title>
 
-  <link rel="stylesheet" href="/paginas/aluno/aluno.css">
+  <link rel="stylesheet" href="/paginas/navbar/telabotao.css">
   <link rel="stylesheet" href="/paginas/navbar/navbar.css">
 
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
@@ -31,7 +31,7 @@
       </div>
       <a href="/paginas/aluno/aluno.html">INICIO</a>
       <a href="/paginas/boletim/boletim.html">BOLETIM</a>
-      <a href="/paginas/comunicados/comunicados.html">COMUNICADOS</a>
+      <a href="/paginas/comunicados/comunicadosaluno.html">COMUNICADOS</a>
       <a href="/paginas/calendario/calendario.html">CALENDÁRIO</a>
       <a href="/paginas/evento/evento.html">EVENTOS</a>
       <a href="/paginas/login/login_aluno/loginaluno.html">SAIR</a>
@@ -57,8 +57,7 @@
                 <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
                 <p class="text-muted font-size-sm">RM: 12345</p>
                 <p class="text-muted font-size-sm">Série: 3° ano</p>
-                <button class="btn btn-primary" style="font-size: 16px; padding: 5px 13px 5px 13px;">Editar
-                  Perfil</button>
+                <button class="btn btn-primary" style="font-size: 16px; padding: 5px 13px 5px 13px;" onclick="location.href='/paginas/aluno/alunoperfil.html'">Perfil</button>
               </div>
             </div>
           </div>
@@ -70,14 +69,82 @@
 
           <div class="card mb-3" id="div-informacao">
 
-            
+            <div class="d-flex text-muted pt-3">
+
+              <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff"
+                  dy=".3em">32x32</text>
+              </svg>
+
+              <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                <div class="d-flex justify-content-between">
+                  <strong class="text-gray-dark" style="font-size: 25px;">Boletim</strong>
+                  <div class="profile-image"><img class="rounded-circle">
+                    <button class="btn btn-primary" onclick="location.href='/paginas/boletim/boletim.html'">Visualizar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-
-
 
         </div>
 
+        <div class="mb">
+
+          <div class="card mb-3" id="div-informacao">
+
+            <div class="d-flex text-muted pt-3">
+
+              <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff"
+                  dy=".3em">32x32</text>
+              </svg>
+
+              <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                <div class="d-flex justify-content-between">
+                  <strong class="text-gray-dark" style="font-size: 25px;">Calendário</strong>
+                  <div class="profile-image"><img class="rounded-circle">
+                    <button class="btn btn-primary" onclick="location.href='/paginas/calendario/calendario.html'">Visualizar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mb">
+
+          <div class="card mb-3" id="div-informacao">
+
+            <div class="d-flex text-muted pt-3">
+
+              <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff"
+                  dy=".3em">32x32</text>
+              </svg>
+
+              <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                <div class="d-flex justify-content-between">
+                  <strong class="text-gray-dark" style="font-size: 25px;">Eventos</strong>
+                  <div class="profile-image"><img class="rounded-circle">
+                    <button class="btn btn-primary" onclick="location.href='/paginas/evento/evento.html'">Visualizar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
       </div>
     </div>

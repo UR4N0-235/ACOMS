@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Área do responsável</title>
+  <title>Área da escola</title>
 
-  <link rel="stylesheet" href="/paginas/navbar/telabotaovisualizar.css">
+  <link rel="stylesheet" href="/paginas/cadastro/cadastrar_responsavel/cadastrar_responsavel.css">
   <link rel="stylesheet" href="/paginas/navbar/navbar.css">
 
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
@@ -31,10 +31,14 @@
       <div class="btn">
         <i class="fas fa-times close-btn"></i>
       </div>
-      <a href="/paginas/responsavel/responsavel.html">Início</a>
-      <a href="/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html">Coordenação</a>
-      <a href="/paginas/comunicados/comunicados.html">Comunicados</a>
-      <a href="/paginas/login/login_responsavel/loginresponsavel.html">Sair</a>
+      <a href="/paginas/cadastro/cadastrar_aluno/cadastrar_aluno.html" style="text-align: center;">Cadastrar Alunos</a>
+      <a href="/paginas/cadastro/cadastrar_responsavel/cadastrar_responsavel.html" style="text-align: center;">Cadastrar
+        Responsável</a>
+      <a href="/paginas/cadastro/cadastrar_professor/cadastrar_professor.html" style="text-align: center;">Cadastrar
+        professor</a>
+      <a href="/paginas/cadastro/cadastrar_coordenador/cadastrar_coordenador.html" style="text-align: center;">Cadastrar
+        coordenação</a>
+      <a href="/paginas/login/login_escola/loginescola.html">Sair</a>
     </div>
     <div class="btn">
       <i class="fas fa-bars menu-btn"></i>
@@ -48,14 +52,13 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png" alt="Admin" class="rounded-circle"
-                width="150">
+              <img src="/paginas/landingpage/img/etec.jpg" alt="Admin" class="rounded-circle" width="150">
               <div class="mt-3">
-                <h4>Samuel</h4>
-                <b class="text-secondary mb-1" font="black">Responsável</b>
-                <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
+                <h4>ETEC Fernandópolis</h4>
+                <b class="text-secondary mb-1" font="black">Escola</b>
+                <p class="text-muted font-size-sm">Operado pela gestão escolar</p>
                 <button class="btn btn-primary"
-                  onclick="location.href='/paginas/responsavel/responsavelperfil.html'">Perfil</button>
+                  onclick="location.href='/paginas/escola/escolaperfil.html'">Perfil</button>
               </div>
             </div>
           </div>
@@ -63,6 +66,11 @@
       </div>
 
       <div class="col-md-8">
+
+
+        <br>
+        <h1>CADASTRO DE RESPONSÁVEL:</h1>
+        <br>
 
         <div class="mb">
 
@@ -80,11 +88,11 @@
 
               <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                 <div class="d-flex justify-content-between">
-                  <strong class="text-gray-dark">Roberto</strong>
+                  <strong class="text-gray-dark">Silvio Cesar Lopes</strong>
                   <button class="btn btn-primary" id="visualizar"
-                    onclick="location.href='/paginas/responsavel_aluno/responsavelalunoboletim.html'">Visualizar</button>
+                    onclick="location.href='/paginas/aluno/aluno.html'">Desativar</button>
                 </div>
-                <span class="d-block">Série: 9° ano - Escola: ETEC Fernandópolis</span>
+                <span class="d-block">Responsável por: aluno Roberto</span>
               </div>
             </div>
           </div>
@@ -103,21 +111,35 @@
 
               <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                 <div class="d-flex justify-content-between">
-                  <strong class="text-gray-dark">Maria</strong>
-                  <button class="btn btn-primary" id="visualizar" onclick="location.href=''">Visualizar</button>
+                  <strong class="text-gray-dark">Carol</strong>
+                  <button class="btn btn-primary" id="visualizar"
+                    onclick="location.href='/paginas/aluno/aluno.html'">Desativar</button>
                 </div>
-                <span class="d-block">Série: 1° ano - Escola: ETEC Fernandópolis</span>
+                <span class="d-block">Responsável por: Pedro Henrique</span>
               </div>
             </div>
           </div>
         </div>
 
-      </div>
 
+
+
+
+      </div>
     </div>
 
-    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
+
+
+    <!--fim for:each-->
+
+    <div class="button_plus"></div>
+
+  </div>
+
+  </div>
+
+  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
 
 </body>
 
