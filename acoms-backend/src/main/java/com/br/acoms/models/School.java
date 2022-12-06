@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -61,6 +63,8 @@ public class School {
     @Column(name = "telephoneNumber", unique = true, nullable = false)
     private String telephoneNumber;
 
+
+
     // start management
     @Column(name = "nameManagement")
     private String nameManagement;
@@ -83,9 +87,13 @@ public class School {
     @OneToMany(mappedBy = "school", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Person> persons;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "role")
+    private Planos contrato;
+
     public School(String name, String address, String email, String password, String cnpj, String telephoneNumber,
             String nameManagement, Date dateOfBirthdayManagement, String cpfManagement,
-            String telephoneNumberManagement, String aditionalManagement) {
+            String telephoneNumberManagement, String aditionalManagement, Planos contrato, Boolean status) {
         this.name = name;
         this.address = address;
         this.email = email;
@@ -97,8 +105,11 @@ public class School {
         this.cpfManagement = cpfManagement;
         this.telephoneNumberManagement = telephoneNumberManagement;
         this.aditionalManagement = aditionalManagement;
-        this.statusBoolean = true;
+        this.statusBoolean = status;
+        this.contrato = contrato;
     }
 
-
+    public enum Planos{
+        BASICO, PROFISSIONAL, VIP
+    }
 }

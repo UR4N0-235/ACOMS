@@ -51,6 +51,7 @@ public class AuthController {
 
     @PostMapping("/adminLogin")
     public ResponseEntity<?> authenticate(@RequestBody LoginRequest userRequest) {
+        System.out.println("teste");
         try {
             Authentication authentication = adminAuthManager
                     .inMemoryDaoAuthenticationProvider()

@@ -89,7 +89,7 @@ public class SchoolService {
             return false;
             
         if(forChange.get().getStatusBoolean()) forChange.get().setStatusBoolean(false);
-        else forChange.get().setStatusBoolean(false);
+        else forChange.get().setStatusBoolean(true);
 
         schoolRepository.save(forChange.get());
         return true;

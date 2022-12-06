@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="/img/logomarca.png">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +17,7 @@
 </head>
 
 <body>
+    <script src="/integrationFile/waitLoad.js"></script>
     <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -23,22 +26,26 @@
                         <div class="card-body p-5 text-center">
 
 
-                            <h2 class="fw-bold mb-2 text-uppercase">Login ADM</h2>
-                            <br>
+                            <form class="loginRequest" action="/adminLogin" method="post">
+                                <h2 class="fw-bold mb-2 text-uppercase">Login ADM</h2>
+                                <br>
 
-                            <div class="form-outline form-white mb-4">
-                                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                <label class="form-label" for="typeEmailX">Email</label>
-                            </div>
+                                <div class="form-outline form-white mb-4">
+                                    <input name="username" type="text" id="typeEmailX"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label" for="typeEmailX">Email</label>
+                                </div>
 
-                            <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                <label class="form-label" for="typePasswordX">Password</label>
-                            </div>
+                                <div class="form-outline form-white mb-4">
+                                    <input name="password" type="password" id="typePasswordX"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label" for="typePasswordX">Password</label>
+                                </div>
 
-                            <a href="/paginas/login_adm/list_school/list_school.html">
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-                            </a>
+
+                                <button formaction="/paginas/login_adm/list_school/list_school.html"
+                                    class="btn btn-outline-light btn-lg px-5 submit">Login</button>
+                            </form>
 
                         </div>
                     </div>
@@ -46,6 +53,14 @@
             </div>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/integrationFile/integration.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../loginFunctions.js"></script>
 </body>
 
 </html>

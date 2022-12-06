@@ -78,17 +78,17 @@ public class RunSeeder {
                                 "Rua elideo Graces de rezende; numero 130",
                                 "admin@teste.com.br", encoder.encode("admin"), "13", "(17) 99793823",
                                 "valdete", Date.valueOf("1950-09-20"), "00001",
-                                "(17) 99096732", "nothing"));
+                                "(17) 99096732", "nothing", School.Planos.PROFISSIONAL, true));
 
                 schools.add(new School("Angulo", "Rua limos barros de melo; numero 160",
                                 "admin@angulo.br", encoder.encode("password"), "17", "(17) 997938233",
                                 "valdete", Date.valueOf("1950-09-20"), "00002",
-                                "(17) 99673432", "nothing"));
+                                "(17) 99673432", "nothing", School.Planos.VIP, false));
 
                 schools.add(new School("Objetivo", "Rua dacubinha; numero 154",
                                 "admin@objetivo.com.br", encoder.encode("password"), "22", "(17) 99793824",
                                 "valdete", Date.valueOf("1950-09-20"), "00003",
-                                "(17) 996732321", "nothing"));
+                                "(17) 996732321", "nothing", School.Planos.VIP, true));
 
                 // schools.add(new School("Teste", "Rua teste; numero teste",
                 // "admin@teste.com.br", encoder.encode("admin"), "892", "(17) 9979382",
