@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -34,12 +35,7 @@ public class Guardian extends Person{
     private Long rmGuardian;
 
     @JsonBackReference
-    @ManyToMany
-    @JoinTable(
-        name = "responsability",
-        joinColumns = @JoinColumn(name = "id_guardian"),
-        inverseJoinColumns = @JoinColumn(name = "id_student")
-    )
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Student> childrens;
 
     @JsonBackReference

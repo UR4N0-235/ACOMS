@@ -28,6 +28,7 @@ import com.br.acoms.repository.StudentRepository;
 import com.br.acoms.service.ChatService;
 import com.br.acoms.service.CoordinatorService;
 import com.br.acoms.service.GuardianService;
+import com.br.acoms.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -47,6 +48,7 @@ public class RunSeeder {
         private final CoordinatorService coordinatorService;
         private final GuardianService guardianService;
         private final ChatService chatService;
+        private final StudentService studentService;
 
         @EventListener
         public void seed(ContextRefreshedEvent event) {
@@ -55,31 +57,25 @@ public class RunSeeder {
                 guardianDataSeeder();
                 chatDataSeeder();
                 studentDataSeeder();
-                testerrr();
+                // testerrr();
 
                 System.out.println("Database seeder done");
         }
 
         public void testerrr() {
                 School escola = schoolRepository.findById(Long.valueOf(1)).get();
-                // for(Guardian guardian : guardianService.getAllBySchool(escola)){
-                // System.out.println(guardian.getEmail());
-                // }
+                Guardian guardian = guardianService.convertPersonToGuardian(escola.getPersons()).get(0);
 
-                // Coordinator coordinator = coordinatorService
-                // .convertPersonToCoordinator(escola.getPersons()).get(0);
-
-                // List<Chat> chats = chatService.getAllByCoordinator(coordinator);
-                // for(Chat chat : chats){
-                // for(Message mensagem : chat.getMessages()){
-                // System.out.println(mensagem.getMessage());
-                // }
+                // List<Student> students =studentService.getAllByGuardian(guardian.getId());
+                // for(Student student : students){
+                // System.out.println(student.getName());
                 // }
         }
 
         private void schoolDataSeeder() {
                 List<School> schools = new ArrayList<>();
-                schools.add(new School("ETEC", "Rua elideo Graces de rezende; numero 130",
+                schools.add(new School("ETEC Professor José Armando Farinazzo",
+                                "Rua elideo Graces de rezende; numero 130",
                                 "admin@teste.com.br", encoder.encode("admin"), "13", "(17) 99793823",
                                 "valdete", Date.valueOf("1950-09-20"), "00001",
                                 "(17) 99096732", "nothing"));
@@ -154,12 +150,14 @@ public class RunSeeder {
                 Optional<School> escola1 = schoolRepository.findById(Long.valueOf(1));
                 if (escola1.isPresent()) {
                         School escola = escola1.get();
+
                         guardians.add(
                                         new Guardian("fran", "890", "fran@gmail.com",
                                                         encoder.encode("fran123"), Date.valueOf("1990-09-20"),
                                                         "(17) 9967-89090", null,
                                                         escola, Roles.GUARDIAN,
                                                         "numero rua ; cidade estadoAbreviado cep", Long.valueOf(1)));
+
                         guardians.add(
                                         new Guardian("valter", "891", "valter@gmail.com",
                                                         encoder.encode("valter123"), Date.valueOf("1970-09-20"),
@@ -172,6 +170,12 @@ public class RunSeeder {
                                                         "(17) 9967-89093", null,
                                                         escola, Roles.GUARDIAN,
                                                         "numero rua ; cidade estadoAbreviado cep", Long.valueOf(3)));
+                        guardians.add(
+                                        new Guardian("Silvo Cesar Lopes", "123.321.222-13", "Silvio@gmail.com",
+                                                        encoder.encode("calvaoDeCria123"), Date.valueOf("1990-09-20"),
+                                                        "(17) 9967-89901", null,
+                                                        escola, Roles.GUARDIAN,
+                                                        "numero rua ; cidade estadoAbreviado cep", Long.valueOf(4)));
 
                 }
                 guardianRepository.saveAll(guardians);
@@ -221,24 +225,21 @@ public class RunSeeder {
 
         private void studentDataSeeder() {
                 School escola = schoolRepository.findById(Long.valueOf(1)).get();
-                List<Guardian> guardians = guardianRepository.findBySchool(escola).get();
 
-                if (guardians != null) {
-                        List<Guardian> guardians1 = new ArrayList<>();
-                        guardians1.add(guardians.get(0));
-                        List<Student> childrens = new ArrayList<>();
+                List<Guardian> guardiansList = guardianRepository.findBySchool(escola).get();
+                Guardian guardian1 = guardiansList.get(0);
+                List<Student> childrens = new ArrayList<>();
 
-                        childrens.add(new Student("matheus", "10", "matheus.fernandes92.235@protonmail.com",
-                                        encoder.encode("password"), Date.valueOf("2004-09-02"), "(17) 99673-67329",
-                                        null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
-                                        guardians1, Long.valueOf(1)));
-                        childrens.add(new Student("gabriel", "11", "gabriel@protonmail.com",
-                                        encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-67330",
-                                        null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
-                                        guardians1, Long.valueOf(2)));
+                childrens.add(new Student("matheus", "10", "matheus.fernandes92.235@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2004-09-02"), "(17) 99673-67329",
+                                null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian1, Long.valueOf(1)));
+                childrens.add(new Student("gabriel", "11", "gabriel@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-67330",
+                                null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian1, Long.valueOf(2)));
 
-                        studentRepository.saveAll(childrens);
-                }
+                studentRepository.saveAll(childrens);
 
         }
 }
