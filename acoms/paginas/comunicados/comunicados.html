@@ -3,15 +3,13 @@
 
 <head>
   <link rel="icon" href="/img/logomarca.png">
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comunicados</title>
+  <title>Área do responsável</title>
 
-  <link rel="stylesheet" href="/paginas/aluno/aluno.css">
-  <link rel="stylesheet" href="/paginas/evento/evento-navbar.css">
   <link rel="stylesheet" href="/paginas/comunicados/comunicados.css">
+  <link rel="stylesheet" href="/paginas/navbar/navbar.css">
 
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css.map">
@@ -20,24 +18,32 @@
   <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo-white.svg">
   <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo.svg">
 
+  <link rel="stylesheet" href="/paginas/navbar/style.css">
+
+  <style>
+    #alerta {
+      width: 32px;
+      height: 32px;
+      margin: 3px;
+      border-radius: 20px;
+    }
+  </style>
+
 </head>
 
 <body id="body">
   <script src="/integrationFile/waitLoad.js"></script>
 
-
-  <header>
+  <header id="cabeca">
     <img src="/img/logofull.png" alt="brand" id="logofull">
     <div class="menu">
       <div class="btn">
         <i class="fas fa-times close-btn"></i>
       </div>
-      <a href="/paginas/aluno/aluno.html">INICIO</a>
-      <a href="/paginas/boletim/boletim.html">BOLETIM</a>
-      <a href="/paginas/comunicados/comunicados.html">COMUNICADOS</a>
-      <a href="/paginas/calendario/calender.html">CALENDÁRIO</a>
-      <a href="/paginas/evento/evento.html">EVENTOS</a>
-      <a href="/paginas/login/login_aluno/loginaluno.html">SAIR</a>
+      <a href="/paginas/responsavel/responsavel.html">Início</a>
+      <a href="/paginas/comunicados/comunicados.html">Comunicados</a>
+      <a href="/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html">Coordenação</a>
+      <a href="/paginas/login/login_responsavel/loginresponsavel.html">Sair</a>
     </div>
     <div class="btn">
       <i class="fas fa-bars menu-btn"></i>
@@ -51,143 +57,149 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle"
+              <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png" alt="Admin" class="rounded-circle"
                 width="150">
               <div class="mt-3">
-                <h4>Roberto</h4>
-                <b class="text-secondary mb-1" font="black">Aluno</b> <br>
-                <b class="text-secondary mb-1" font="black">Vinculado ao responsável: Silvio</b>
+                <h4>Silvio Cesar Lopes</h4>
+                <b class="text-secondary mb-1" font="black">Responsável</b>
                 <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
-                <p class="text-muted font-size-sm">RM: 12345</p>
-                <p class="text-muted font-size-sm">Série: 3° ano</p>
-                <button class="btn btn-primary">Editar Perfil</button>
-                <button onclick="location.href='/paginas/boletim/boletim.html'" class="btn btn-outline-primary">Ver Boletim</button>
+                <button class="btn btn-primary"
+                  onclick="location.href='/paginas/responsavel/responsavelperfil.html'">Perfil</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <iv class="col-md-8">
+
+      <div class="col-md-8">
 
         <div class="mb">
 
-          <div class="card mb-3" id="div-aluno">
-            <div class="d-flex text-muted pt-3">
+          <div class="card mb-3" id="div-informacao">
 
-              <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
-
-              <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-                <div class="d-flex justify-content-between">
-                  <strong class="text-gray-dark">Tempo de férias</strong>
-                  <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
-                </div>
-                <span class="d-block">Férias estão chegando, saiba a data!</span>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="mb">
 
             <div class="card mb-3" id="div-aluno">
+
               <div class="d-flex text-muted pt-3">
 
                 <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
 
-
                 <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                   <div class="d-flex justify-content-between">
-                    <strong class="text-gray-dark">Reunião de pais e mestres a caminho</strong>
+                    <strong class="text-gray-dark">Tempo de férias</strong>
                     <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
                   </div>
-                  <span class="d-block">A reunião de pais e mestres do último bimestre está a caminho!</span>
+                  <span class="d-block">Férias estão chegando, saiba a data!</span>
                 </div>
 
               </div>
 
             </div>
 
+            <div class="mb">
 
-          </div>
+              <div class="card mb-3" id="div-aluno">
+                <div class="d-flex text-muted pt-3">
 
-          <div class="mb">
-
-            <div class="card mb-3" id="div-aluno">
-              <div class="d-flex text-muted pt-3">
-
-                <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
+                  <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
 
 
-                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-                  <div class="d-flex justify-content-between">
-                    <strong class="text-gray-dark">Alunos sairão mais cedo nos dias do jogos do Brasil</strong>
-                    <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
+                  <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                      <strong class="text-gray-dark">Reunião de pais e mestres a caminho</strong>
+                      <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
+                    </div>
+                    <span class="d-block">A reunião de pais e mestres do último bimestre está a caminho!</span>
                   </div>
-                  <span class="d-block">Vamos torcer para o hexa! Alunos liberados para os jogos do Brasil!</span>
+
                 </div>
 
               </div>
+
+
+            </div>
+
+            <div class="mb">
+
+              <div class="card mb-3" id="div-aluno">
+                <div class="d-flex text-muted pt-3">
+
+                  <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
+
+
+                  <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                      <strong class="text-gray-dark">Alunos sairão mais cedo nos dias do jogos do Brasil</strong>
+                      <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
+                    </div>
+                    <span class="d-block">Vamos torcer para o hexa! Alunos liberados para os jogos do Brasil!</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+            <div class="mb">
+
+              <div class="card mb-3" id="div-aluno">
+                <div class="d-flex text-muted pt-3">
+
+                  <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
+
+
+                  <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                      <strong class="text-gray-dark">Prova Saresp</strong>
+                      <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
+                    </div>
+                    <span class="d-block">Prova do Saresp chegando! É importante estudar!</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+            <div class="mb">
+
+              <div class="card mb-3" id="div-aluno">
+                <div class="d-flex text-muted pt-3">
+
+                  <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
+
+
+                  <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                      <strong class="text-gray-dark">Semana de trote!</strong>
+                      <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
+                    </div>
+                    <span class="d-block">Confira as regras e vestimentas para a semana de trote!</span>
+                  </div>
+
+                </div>
+
+              </div>
+
 
             </div>
 
 
           </div>
-
-          <div class="mb">
-
-            <div class="card mb-3" id="div-aluno">
-              <div class="d-flex text-muted pt-3">
-
-                <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
-
-
-                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-                  <div class="d-flex justify-content-between">
-                    <strong class="text-gray-dark">Prova Saresp</strong>
-                    <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
-                  </div>
-                  <span class="d-block">Prova do Saresp chegando! É importante estudar!</span>
-                </div>
-
-              </div>
-
-            </div>
-
-
-          </div>
-
-          <div class="mb">
-
-            <div class="card mb-3" id="div-aluno">
-              <div class="d-flex text-muted pt-3">
-
-                <img src="/img/alerta.svg" id="alerta" alt="alerta" srcset="">
-
-
-                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-                  <div class="d-flex justify-content-between">
-                    <strong class="text-gray-dark">Semana de trote!</strong>
-                    <button class="btn btn-primary" id="visualizar">Ver detalhes</button>
-                  </div>
-                  <span class="d-block">Confira as regras e vestimentas para a semana de trote!</span>
-                </div>
-
-              </div>
-
-            </div>
-
-
-          </div>
-
-
-
         </div>
+
+
+
+      </div>
+
     </div>
-  </div>
-  </div>
-  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
+
+    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
 
 </body>
 

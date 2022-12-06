@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="chat.css">
+
+
+
+</head>
+
+<body>
+    <div id="body2">
+        <div class="chatbox-wrapper">
+            <div class="chatbox-toggle">
+                <i class='bx bx-message-dots'></i>
+            </div>
+            <div class="chatbox-message-wrapper">
+                <div class="chatbox-message-header" style="background-image: linear-gradient(to right, #4562cc, #089bdf);">
+                    <div class="chatbox-message-profile">
+                        <img src="/chat/JACKIECHAN.jpg" alt="" class="chatbox-message-image">
+                        <div>
+                            <h4 class="chatbox-message-name" style="color: white;">Coordenador</h4>
+                            <p class="chatbox-message-status" style="color: white;">online</p>
+                        </div>
+                    </div>
+                    <div class="chatbox-message-dropdown">
+                        <i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
+                        <ul class="chatbox-message-dropdown-menu">
+                            <li>
+                                <a href="#">Pesquisa</a>
+                            </li>
+                            <li>
+                                <a href="#">Reportar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chatbox-message-content">
+                    <h4 class="chatbox-message-no-message">Você ainda não tem mensagens!</h4>
+                    <!-- <div class="chatbox-message-item sent">
+                    <span class="chatbox-message-item-text">
+                        Bom dia, meu filho faltou hoje porque está doente e irá para o médico, portanto não comparecerá hoje na escola. Obrigado pela sua preocupação.
+                    </span>
+                    <span class="chatbox-message-item-time">08:30</span>
+                </div>
+
+                <div class="chatbox-message-item received">
+                    <span class="chatbox-message-item-text">
+                        Bom dia, senho reponsável, queria avisa-lo que seu filho está ausente hoje na escola, há algum motiva para a falta dele?
+                    </span>
+                    <span class="chatbox-message-item-time">08:30</span>
+                </div> -->
+                </div>
+                <div class="chatbox-message-bottom" style="background-image: linear-gradient(to right, #4562cc, #089bdf);">
+                    <form action="#" class="chatbox-message-form">
+                        <textarea rows="1" placeholder="Escreva uma mensagem..." class="chatbox-message-input"
+                            cols="50" id="usermsg"></textarea>
+                        <button type="submit" class="chatbox-message-submit"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+
+
+</body>
+
+</html>

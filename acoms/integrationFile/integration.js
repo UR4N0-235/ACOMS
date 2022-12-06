@@ -19,9 +19,9 @@ function preProcess() {
 function addScripts() {
     $('head').append('<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>');
     
-    $('head').append('<script src="/integrationFile/env.js"><script>');
-    $('head').append('<script src="/integrationFile/authController.js"><script>');
-    $('head').append('<script src="/integrationFile/sendRequest.js"><script>');
+    $('head').append('<script src="/integrationFile/env.js"></script>');
+    $('head').append('<script src="/integrationFile/authController.js"></script>');
+    $('head').append('<script src="/integrationFile/sendRequest.js"></script>');
 }
 
 function fixUrlAction() {

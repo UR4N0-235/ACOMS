@@ -1,79 +1,50 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
-#body{
+#body {
     background-image: linear-gradient(to right, #294091, #089bdf);
 }
 
 .main-body {
-    padding: 10px;
+    padding: 15px 15px 0px 15px;
 }
 
 .card {
-    /*sombrinha em algumas divs*/
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+
 }
 
-
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
 
 .card-body {
-    height: 500px;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+    height: 600px;
 }
 
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
-    padding-right: 8px;
-    padding-left: 8px;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
+.gutters-sm>[class*=col-md-4] {
+    padding-left: 10px;
+    padding-right: 20px;
 }
 
-.bg-gray-300 {
-    background-color: #e2e8f0;
-
-}
-.h-100 {
-    height: 100%!important;
-}
-.shadow-none {
-    box-shadow: none!important;
-}
-
-.col-md-8{
-    background-color:white;
+.col-md-8 {
+    background-color: white;
     background-color: rgba(255, 255, 255, 0.6);
-    height: 500px;
-    position: relative;
+    border-radius: 5px;
+    height: 600px;
+    right: 10px;
 }
 
-#botao{
-    position: relative;
-}
-
-#div-informacao{
-    
-    height: 450px;
-}
-
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
+#div-informacao {
+    margin-top: 10px;
+    padding: 10px 10px 0px 10px;
+    height: 580px;
 }
