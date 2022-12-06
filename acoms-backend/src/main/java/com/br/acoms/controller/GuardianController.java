@@ -30,15 +30,19 @@ public class GuardianController {
     @GetMapping("")
     public ResponseEntity<?> getUserLogged(HttpServletRequest request){
         if(verifyGuardian(request) == null) return new ResponseEntity<>("error no servidor",HttpStatus.INTERNAL_SERVER_ERROR);
-        
-        return new ResponseEntity<>(verifyGuardian(request), HttpStatus.OK);
+        Guardian loggedGuardian = verifyGuardian(request);
+
+        return new ResponseEntity<>(loggedGuardian, HttpStatus.OK);
     }
 
     @GetMapping("/students")
     public ResponseEntity<?> getGuradianChildrens(HttpServletRequest request){
         if(verifyGuardian(request) == null) return new ResponseEntity<>("error no servidor",HttpStatus.INTERNAL_SERVER_ERROR);
         Guardian guardianLoggedIs = verifyGuardian(request);
-        List<Student> childrens = studentService.getAllByGuardian(guardianLoggedIs) ;
+        List<Student> childrens = studentService.getAllByGuardian(guardianLoggedIs);
+
+        System.out.println(childrens.get(0).getEmail());
+
         return new ResponseEntity<>(childrens, HttpStatus.OK);
     }
 
@@ -50,4 +54,5 @@ public class GuardianController {
 
         return isValidGuardian.get();
     }
+
 }

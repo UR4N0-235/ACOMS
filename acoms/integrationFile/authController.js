@@ -65,10 +65,12 @@ async function logOut(){
 }
 
 function verifyHrefNecessaryAuth(){
-    var url = window.location.pathname;
+    let url = window.location.pathname;
+    // if(getAuthCookie() == '')window.location.replace('http://127.0.0.1:5500/paginas/landingpage/landingpage.html');
+
 
     if(url.startsWith("/paginas/responsavel")){
-        $('head').append('<script src="/integrationFile/isolateControllers/guardian.js"></script>');
+        $('head').append(`<script src="/integrationFile/isolateControllers/guardian.js"></script>`);
         console.log("testeeee");
     }
 
