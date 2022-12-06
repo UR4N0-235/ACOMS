@@ -35,6 +35,7 @@ public class JwtFilter extends OncePerRequestFilter {
         try {
             String jwt = jwtUtils.parseJwt(request);
             // System.out.println("jwtFilter.doFilter jwtValue = " + jwt);
+            // System.out.println("url = " + request.getRequestURI());
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
                 String username = jwtUtils.getUserNameFromJwtToken(jwt);
 
@@ -46,6 +47,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 UserDetails userDetails = securityController.defineUserDetails(username);
 
                 if (userDetails != null) {
+                    // System.out.println("autoridades " + userDetails.getAuthorities().toString());
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                             userDetails,
                             null,

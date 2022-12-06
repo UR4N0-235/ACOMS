@@ -25,4 +25,16 @@ public class StudentService{
             return null;
         }
     }
+
+    public Optional<Student> readByRm(Long rmStudent){
+        Optional<Student> student = studentRepository.findByRmStudent(rmStudent);
+        if(student.isEmpty()) return null;
+        return student;
+    }
+
+    public Optional<Student> readByRm(String rmStudent){
+        Optional<Student> student = studentRepository.findByRmStudent(Long.parseLong(rmStudent));
+        if(student.isEmpty()) return null;
+        return student;
+    }
 }

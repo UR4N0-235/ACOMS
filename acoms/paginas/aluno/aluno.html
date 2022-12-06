@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" href="/img/logomarca.png">
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,11 +54,11 @@
               <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle"
                 width="150">
               <div class="mt-3" style="font-size: 16px;">
-                <h4 style="font-size: 24px;">Roberto</h4>
+                <h4 style="font-size: 24px;" class="studentName">Roberto</h4>
                 <b class="text-secondary mb-1" font="black">Aluno</b> <br>
-                <b class="text-secondary mb-1" font="black">Vinculado ao responsável: Silvio</b>
-                <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
-                <p class="text-muted font-size-sm">RM: 12345</p>
+                <b class="text-secondary mb-1" font="black">Vinculado ao responsável: <span class="parentName"></span></b>
+                <p class="text-muted font-size-sm schoolName">ETEC Prof. Armando josé Farinazzo</p>
+                <p class="text-muted font-size-sm">RM: <span class="studentRm"></span></p>
                 <p class="text-muted font-size-sm">Série: 3° ano</p>
                 <button class="btn btn-primary" style="font-size: 16px; padding: 5px 13px 5px 13px;">Editar
                   Perfil</button>
@@ -85,7 +87,9 @@
   </div>
   <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
-
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="/integrationFile/integration.js"></script>
 </body>
 
 </html>

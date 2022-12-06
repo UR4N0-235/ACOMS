@@ -1,15 +1,17 @@
 function processLoginRequest() {
     $('.loginRequest').each((index, form) => {
         let formData = $(form);
-        $(".loginRequest .submit").on("click", (event) => {
+        $(".loginRequest .submit").on("click", async (event) => {
             event.preventDefault();
+            await logOut();
             callAjaxAndReturnPromise(formData)
                 .then(async (response) => {
                     if(response.status == 401){
                         console.log("error login errado");
-                $("#errologin").css('display', 'inline');
+                        $("#errologin").css('display', 'inline');
                     }else{
                         let responseContent = await response.json();
+                        // console.log(responseContent);
                         saveAuthCookie(responseContent);
                         let redirectTo = $(".loginRequest .submit").attr('formaction');
                        window.location.replace(redirectTo);
@@ -61,7 +63,6 @@ function getAuthCookie(){
 async function logOut(){
     await fetch(`http://${getIpServer()}:8080/logout`);
     document.cookie = "ACOMs_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
 }
 
 function verifyHrefNecessaryAuth(){
@@ -71,14 +72,13 @@ function verifyHrefNecessaryAuth(){
 
     if(url.startsWith("/paginas/responsavel")){
         $('head').append(`<script src="/integrationFile/isolateControllers/guardian.js"></script>`);
-        console.log("testeeee");
     }
 
-    // exemples : 
-    // if(url.startsWith("/paginas/aluno")){
-    //     $('head').append('<script src="/integrationFile/isolateControllers/guardian.js"></script>');
-    //     runController();
-    // }
+    if(url.startsWith("/paginas/aluno")){
+        $('head').append('<script src="/integrationFile/isolateControllers/student.js"></script>');
+    }
+
+    // ainda falta : 
     
     // if(url.startsWith("/paginas/coordenacao")){
     //     $('head').append('<script src="/integrationFile/isolateControllers/guardian.js"></script>');

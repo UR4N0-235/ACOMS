@@ -24,6 +24,7 @@ import com.br.acoms.security.coordinatorSecurity.CoordinatorSecurity;
 import com.br.acoms.security.guardianSecurity.GuardianSecurity;
 import com.br.acoms.security.jwt.JwtUtils;
 import com.br.acoms.security.schoolSecurity.SchoolSecurity;
+import com.br.acoms.security.studentSecurity.StudentSecurity;
 
 import lombok.RequiredArgsConstructor;
 
@@ -41,6 +42,9 @@ public class AuthController {
 
     @Autowired
     private CoordinatorSecurity coordinatorAuthManager;
+
+    @Autowired
+    private StudentSecurity studentAuthManager;
 
     @Autowired
     JwtUtils jwtUtils;
@@ -165,6 +169,40 @@ public class AuthController {
         
                 return new ResponseEntity<>(new JwtResponse(jwt,
                         userRequest.getUsername(), Roles.COORDINATOR, "coordinator"), HttpStatus.OK);
+            }
+            // em caso de badCredentials = nao para o servidor, retorna http status 401
+        } catch (BadCredentialsException bad) {
+            return new ResponseEntity<>("Failed", HttpStatus.UNAUTHORIZED);
+        } catch (HttpMessageNotReadableException notCorrect) {
+            return new ResponseEntity<>("Error on getting userInformation", HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>("Failed", HttpStatus.UNAUTHORIZED);
+    }
+
+    @PostMapping("/studentLogin")
+    public ResponseEntity<?> authenticateStudent(@RequestBody LoginRequest userRequest) {
+        // System.out.println("bateu");
+        // System.out.println("username: " + userRequest.getUsername());
+        // System.out.println("password: " + userRequest.getPassword());
+        
+        try {
+            Authentication authentication = studentAuthManager
+                    .studentAuthenticationProvider()
+                    .authenticate(
+                            new UsernamePasswordAuthenticationToken(
+                                    userRequest.getUsername(),
+                                    userRequest.getPassword()));
+            if (authentication != null && !(authentication instanceof AnonymousAuthenticationToken)
+                    && authentication.isAuthenticated()) {
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+                String jwt = jwtUtils.generateJwtToken(authentication, userRequest.getUsername(),
+                        Roles.STUDENT.toString());
+
+                // System.out.println("passou JWTGerado : " + jwt);
+        
+                return new ResponseEntity<>(new JwtResponse(jwt,
+                        userRequest.getUsername(), Roles.STUDENT, "student"), HttpStatus.OK);
             }
             // em caso de badCredentials = nao para o servidor, retorna http status 401
         } catch (BadCredentialsException bad) {

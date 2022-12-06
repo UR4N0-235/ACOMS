@@ -10,6 +10,7 @@ import com.br.acoms.security.adminSecurity.AdminSecurity;
 import com.br.acoms.security.coordinatorSecurity.CoordinatorSecurity;
 import com.br.acoms.security.guardianSecurity.GuardianSecurity;
 import com.br.acoms.security.schoolSecurity.SchoolSecurity;
+import com.br.acoms.security.studentSecurity.StudentSecurity;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,6 +29,8 @@ public class MultipleSecurityController {
     @Autowired
     private final CoordinatorSecurity coordinatorSecurity;
 
+    @Autowired
+    private final StudentSecurity studentSecurity;
 
     public DaoAuthenticationProvider adminProvider() {
         return adminSecurity.inMemoryDaoAuthenticationProvider();
@@ -45,12 +48,17 @@ public class MultipleSecurityController {
         return guardianSecurity.guardianAuthenticationProvider();
     }
 
+    public DaoAuthenticationProvider studentProvider() {
+        return studentSecurity.studentAuthenticationProvider();
+    }
+
     public UserDetails defineUserDetails(String username) {
         if(isAdmin(username) != null) return isAdmin(username);
         if(isSchool(username) != null) return isSchool(username);
         if(isGuardian(username) != null) return isGuardian(username);
         if(isCoordinator(username) != null) return isCoordinator(username);
-
+        if(isStudent(username) != null) return isStudent(username);
+        
         // se nao encontrar nenhum userDetail
         System.out.println("opa, nao encontrou nenhum UserDetail ! ! ! eita eita ein, arruma isso ai");
         return null;
@@ -94,6 +102,17 @@ public class MultipleSecurityController {
         try{
             if (guardianSecurity.guardianUserDetailsService.loadUserByUsername(username) != null)
             return guardianSecurity.guardianUserDetailsService.loadUserByUsername(username);
+        }catch(UsernameNotFoundException e){
+            // tratamento de erro?
+            return null;
+        }
+        return null;
+    }
+
+    private UserDetails isStudent(String username){
+        try{
+            if (studentSecurity.studentUserDetailsService.loadUserByUsername(username) != null)
+            return studentSecurity.studentUserDetailsService.loadUserByUsername(username);
         }catch(UsernameNotFoundException e){
             // tratamento de erro?
             return null;
