@@ -2,14 +2,13 @@
 <html lang="en">
 
 <head>
-  <link rel="icon" href="/img/logomarca.png">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos escolares</title>
+  <title>Área do responsável</title>
 
-  <link rel="stylesheet" href="/paginas/navbar/telafull.css">
-  <link rel="stylesheet" href="/paginas/evento/evento-navbar.css">
+  <link rel="stylesheet" href="/paginas/responsavel_aluno/responsavelaluno.css">
+  <link rel="stylesheet" href="/paginas/responsavel_aluno/responsavelaluno-navbar.css">
 
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css.map">
@@ -21,17 +20,22 @@
   <link rel="stylesheet" href="/paginas/navbar/style.css">
 
 
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/calendar/css/style.css">
 
   <style>
     /*
-
-All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77). 
-        
-The 'supports' rule will only run if your browser supports CSS grid.
-
-Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
-
-*/
+    
+    All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77). 
+            
+    The 'supports' rule will only run if your browser supports CSS grid.
+    
+    Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
+    
+    */
 
     @import url(https://fonts.googleapis.com/css?family=Montserrat:500);
 
@@ -100,12 +104,12 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
     }
 
     /*
-
-The following rule will only run if your browser supports CSS grid.
-
-Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
-
-*/
+    
+    The following rule will only run if your browser supports CSS grid.
+    
+    Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+    
+    */
 
     @supports (display: grid) {
       .gallery {
@@ -124,23 +128,26 @@ Remove or comment-out the code block below to see how the browser will fall-back
       text-align: center;
     }
   </style>
+
 </head>
 
 <body id="body">
-  <script src="/integrationFile/waitLoad.js"></script>
 
-  <header>
+
+  <header id="cabeca">
     <img src="/img/logofull.png" alt="brand" id="logofull">
     <div class="menu">
       <div class="btn">
         <i class="fas fa-times close-btn"></i>
       </div>
-      <a href="/paginas/aluno/aluno.html">INICIO</a>
-      <a href="/paginas/boletim/boletim.html">BOLETIM</a>
-      <a href="/paginas/comunicados/comunicadosaluno.html">COMUNICADOS</a>
-      <a href="/paginas/calendario/calendario.html">CALENDÁRIO</a>
-      <a href="/paginas/evento/evento.html">EVENTOS</a>
-      <a href="/paginas/login/login_aluno/loginaluno.html">SAIR</a>
+      <a href="/paginas/responsavel/responsavel.html">Início</a>
+      <a href="/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html">Coordenação</a>
+      <a href="/paginas/comunicados/comunicados.html">Comunicados</a>
+      <a href="/paginas/responsavel_aluno/responsavelalunoboletim.html">Boletim</a>
+      <a href="/paginas/responsavel_aluno/responsavelalunocalendario.html">Calendário</a>
+      <a href="/paginas/responsavel_aluno/responsavelalunoevento.html">Eventos</a>
+      <a href="/paginas/login/login_responsavel/loginresponsavel.html">Sair</a>
+
     </div>
     <div class="btn">
       <i class="fas fa-bars menu-btn"></i>
@@ -156,18 +163,28 @@ Remove or comment-out the code block below to see how the browser will fall-back
         <div class="card">
           <!--div do fundo branco-->
           <div class="card-body">
+
             <div class="d-flex flex-column align-items-center text-center">
-              <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle" width="150" style="margin-top: 8px;">
+              <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle"
+                width="150">
               <div class="mt-3" style="font-size: 16px;">
-                <h4 style="font-size: 24px; margin-top: 10px;">Roberto</h4>
-                <b class="text-secondary mb-1" font="black">Aluno</b> <br>
-                <b class="text-secondary mb-1" font="black">Vinculado ao responsável: Silvio</b>
-                <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
-                <p class="text-muted font-size-sm">RM: 12345</p>
-                <p class="text-muted font-size-sm">Série: 3° ano</p>
-                <button class="btn btn-primary" style="font-size: 16px; padding: 5px 13px 5px 13px;" onclick="location.href='/paginas/aluno/alunoperfil.html'">Perfil</button>
+                <h4 style="font-size: 24px; margin-bottom: 1px;">Roberto</h4>
+                <b class="text-secondary mb-1" font="black">Aluno</b>
               </div>
             </div>
+
+            <div class="d-flex flex-column align-items-center text-center" style="margin-top: 13px;">
+              <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png" alt="Admin" class="rounded-circle"
+                width="150" style="margin-bottom: 10px;">
+              <div class="mt-3">
+                <h4 style="font-size: 25px; margin-bottom: 1px;">Samuel</h4>
+                <b class="text-secondary mb-1" font="black">Responsável</b>
+                <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
+                <button class="btn btn-primary" onclick="location.href='/paginas/responsavel/responsavelperfil.html'"
+                  style="font-size: 16px; padding: 6px 12px 6px 12px;">Perfil</button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -200,14 +217,8 @@ Remove or comment-out the code block below to see how the browser will fall-back
         </div>
 
       </div>
-      
+
     </div>
-
-  </div>
-
-  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
-
 </body>
 
 </html>

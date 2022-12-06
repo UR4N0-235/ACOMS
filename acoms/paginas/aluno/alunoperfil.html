@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do aluno</title>
+
+    <link rel="stylesheet" href="/paginas/navbar/telafull.css">
+    <link rel="stylesheet" href="/paginas/navbar/navbar.css">
+
+    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.rtl.min.css.map">
+    <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo-white.svg">
+    <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo.svg">
+
+    <link rel="stylesheet" href="/paginas/navbar/style.css">
+
+</head>
+
+<body id="body">
+
+    <header id="cabeca">
+        <img src="/img/logofull.png" alt="brand" id="logofull">
+        <div class="menu">
+            <div class="btn">
+                <i class="fas fa-times close-btn"></i>
+            </div>
+            <a href="/paginas/aluno/aluno.html">INICIO</a>
+            <a href="/paginas/boletim/boletim.html">BOLETIM</a>
+            <a href="/paginas/comunicados/comunicadosaluno.html">COMUNICADOS</a>
+            <a href="/paginas/calendario/calendario.html">CALENDÁRIO</a>
+            <a href="/paginas/evento/evento.html">EVENTOS</a>
+            <a href="/paginas/login/login_aluno/loginaluno.html">SAIR</a>
+        </div>
+        <div class="btn">
+            <i class="fas fa-bars menu-btn"></i>
+        </div>
+    </header>
+
+    <div class="main-body">
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"
+                                class="rounded-circle" width="150">
+                            <div class="mt-3" style="font-size: 16px;">
+                                <h4 style="font-size: 24px;">Roberto</h4>
+                                <b class="text-secondary mb-1" font="black">Aluno</b> <br>
+                                <b class="text-secondary mb-1" font="black">Vinculado ao responsável: Silvio</b>
+                                <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
+                                <p class="text-muted font-size-sm">RM: 12345</p>
+                                <p class="text-muted font-size-sm">Série: 3° ano</p>
+                                <button class="btn btn-primary" style="font-size: 16px; padding: 5px 13px 5px 13px;"
+                                    onclick="location.href='/paginas/aluno/alunoperfil.html'">Perfil</button>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><img src="https://www.svgrepo.com/show/75407/password.svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-instagram me-2 icon-inline text-danger">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>CPF
+                                </h6>
+                                <span class="text-secondary">600.715.970-18</span>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+
+                <div class="mb">
+
+                    <div class="card mb-3" id="div-informacao">
+
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Nome completo</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" value="Roberto Farias">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Data Nascimento</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" value="025/03/2004">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">E-mail</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" value="roberto@gmail.com">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Senha</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" value="12345">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Celular</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" value="(17) 99193-5674">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Endereço</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" value="Rua Ipiranga, 865, Fernandópolis">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="button" class="btn btn-primary px-4" value="Salvar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
+
+</body>
+
+</html>
