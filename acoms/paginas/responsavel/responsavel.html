@@ -3,14 +3,14 @@
 
 <head>
   <link rel="icon" href="/img/logomarca.png">
-
+  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área do responsável</title>
 
-  <link rel="stylesheet" href="/paginas/responsavel/responsavel.css">
-  <link rel="stylesheet" href="/paginas/evento/evento-navbar.css">
+  <link rel="stylesheet" href="/paginas/navbar/telabotaovisualizar.css">
+  <link rel="stylesheet" href="/paginas/navbar/navbar.css">
 
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/bootstrap/assets/dist/css/bootstrap.min.css.map">
@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo-white.svg">
   <link rel="stylesheet" href="/bootstrap/assets/brand/bootstrap-logo.svg">
 
+  <link rel="stylesheet" href="/paginas/navbar/style.css">
+
 
 </head>
 
@@ -26,16 +28,17 @@
   <script src="/integrationFile/waitLoad.js"></script>
 
 
-  <header>
+
+  <header id="cabeca">
     <img src="/img/logofull.png" alt="brand" id="logofull">
     <div class="menu">
       <div class="btn">
         <i class="fas fa-times close-btn"></i>
       </div>
-      <a href="/paginas/responsavel/responsavel.html">INICIO</a>
-      <a href="#vantagens">COMUNICADOS</a>
-      <a href="/paginas/calendario/calender.html">CALENDÁRIO</a>
-      <a href="/paginas/evento/evento.html">EVENTOS</a>
+      <a href="/paginas/responsavel/responsavel.html">Início</a>
+      <a href="/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html">Coordenação</a>
+      <a href="/paginas/comunicados/comunicados.html">Comunicados</a>
+      <a href="/paginas/login/login_responsavel/loginresponsavel.html">Sair</a>
       <a class="logout" href="#">SAIR</a>
     </div>
     <div class="btn">
@@ -56,13 +59,14 @@
                 <h4 class="guardianName">nenhum usuario logado</h4>
                 <b class="text-secondary mb-1" font="black">Responsável</b>
                 <p class="schoolName text-muted font-size-sm">nenhum usuario logado</p>
-                <button class="btn btn-primary">Follow</button>
-                <button class="btn btn-outline-primary">Message</button>
+                <button class="btn btn-primary"
+                  onclick="location.href='/paginas/responsavel/responsavelperfil.html'">Perfil</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-md-8 childrensContainer">
 
         O CONTEUDO DESSA DIV È GERADO DINAMICAMENTE!
