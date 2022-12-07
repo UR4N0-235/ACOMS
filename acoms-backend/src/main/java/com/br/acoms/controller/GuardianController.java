@@ -1,6 +1,5 @@
 package com.br.acoms.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,13 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.br.acoms.models.Coordinator;
 import com.br.acoms.models.Guardian;
-import com.br.acoms.models.Person;
-import com.br.acoms.models.School;
 import com.br.acoms.models.Student;
 import com.br.acoms.security.jwt.JwtUtils;
 import com.br.acoms.service.CoordinatorService;
 import com.br.acoms.service.GuardianService;
-import com.br.acoms.service.SchoolService;
 import com.br.acoms.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
@@ -31,7 +27,6 @@ import lombok.RequiredArgsConstructor;
 public class GuardianController {
     private final StudentService studentService;
     private final GuardianService guardianService;
-    private final SchoolService schoolService;
     private final CoordinatorService coordinatorService;
     private final JwtUtils jwtUtils;
 
