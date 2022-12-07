@@ -58,13 +58,24 @@ async function getGuardianChildres(header){
 }
 
 function defineGuardianFields(loggedGuardian) {
+    console.log(loggedGuardian);
     $(".guardianName").each((index, guardian) => {
         $(guardian).text(loggedGuardian.name);
+    });
+
+    $(".guardianAddress").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.address);
+    });
+
+    $(".guardianCpf").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.cpf);
     });
 
     $(".schoolName").each((index, school) => {
         $(school).text(loggedGuardian.school.name);
     });
+
+    
 
 }
 

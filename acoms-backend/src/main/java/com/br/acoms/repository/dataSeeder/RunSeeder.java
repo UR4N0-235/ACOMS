@@ -25,11 +25,8 @@ import com.br.acoms.repository.GuardianRepository;
 import com.br.acoms.repository.MessageRepository;
 import com.br.acoms.repository.SchoolRepository;
 import com.br.acoms.repository.StudentRepository;
-import com.br.acoms.service.ChatService;
 import com.br.acoms.service.CoordinatorService;
 import com.br.acoms.service.GuardianService;
-import com.br.acoms.service.StudentService;
-
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -47,9 +44,6 @@ public class RunSeeder {
 
         private final CoordinatorService coordinatorService;
         private final GuardianService guardianService;
-        private final ChatService chatService;
-        private final StudentService studentService;
-
         @EventListener
         public void seed(ContextRefreshedEvent event) {
                 schoolDataSeeder();
@@ -63,8 +57,8 @@ public class RunSeeder {
         }
 
         public void testerrr() {
-                School escola = schoolRepository.findById(Long.valueOf(1)).get();
-                Guardian guardian = guardianService.convertPersonToGuardian(escola.getPersons()).get(0);
+                // School escola = schoolRepository.findById(Long.valueOf(1)).get();
+                // Guardian guardian = guardianService.convertPersonToGuardian(escola.getPersons()).get(0);
 
                 // List<Student> students =studentService.getAllByGuardian(guardian.getId());
                 // for(Student student : students){
