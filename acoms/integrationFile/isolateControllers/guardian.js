@@ -112,6 +112,14 @@ function defineGuardianFields(loggedGuardian) {
         $(guardian).text(`${date.getDate()}/${date.getMonth()}/${date.getFullYear+1}`);
     });
 
+    $(".guardianAddress").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.address);
+    });
+
+    $(".guardianCpf").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.cpf);
+    });
+
     $(".schoolName").each((index, school) => {
         $(school).text(loggedGuardian.school.name);
     });
