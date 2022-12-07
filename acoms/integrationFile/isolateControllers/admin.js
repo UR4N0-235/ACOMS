@@ -38,7 +38,7 @@ function defineSchoolsList(schoolsLoadded) {
             <li class="d-flex justify-content-between">
             <div class="d-flex flex-row align-items-center"><i class="fa fa-check-circle checkicon"></i>
                 <div class="ml-2">
-                    <h6 class="mb-0" style="font-size: 20px;">${school.name}</h6>
+                    <h6 class="mb-0" style="font-size: 20px; ${school.statusBoolean ? 'color:green;':'color:red;'}">${school.name}</h6>
                     <div class="d-flex flex-row mt-1 text-black-50 date-time" style="font-size: 15px;">
                         <div><i class="fa fa-calendar-o"></i><span class="ml-2">Contrato: ${school.contrato} - R$${school.contrato === "VIP" ? '300,00' : school.contrato === "PROFISSIONAL" ? "200,00" : "100,00"}/mês</span></div>
                         <div class="ml-3"><i class="fa fa-clock-o"></i><span class="ml-2"></span>

@@ -3,7 +3,8 @@ function processLoginRequest() {
         let formData = $(form);
         $(".loginRequest .submit").on("click", async (event) => {
             event.preventDefault();
-            await logOut();
+            //await logOut();
+            document.cookie = "ACOMs_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             callAjaxAndReturnPromise(formData)
                 .then(async (response) => {
                     if (response.status == 401) {
@@ -70,7 +71,7 @@ function verifyHrefNecessaryAuth() {
     // if(getAuthCookie() == '')window.location.replace('http://127.0.0.1:5500/paginas/landingpage/landingpage.html');
 
 
-    if (url.startsWith("/paginas/responsavel")) {
+    if (url.startsWith("/paginas/responsavel") || url.match("/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html")) {
         $('head').append(`<script src="/integrationFile/isolateControllers/guardian.js"></script>`);
     }
 

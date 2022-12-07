@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.br.acoms.models.Coordinator;
 import com.br.acoms.models.Person;
 import com.br.acoms.models.Roles;
+import com.br.acoms.models.School;
 import com.br.acoms.models.payload.request.CoordinatorRequest;
 import com.br.acoms.repository.CoordinatorRepository;
 
@@ -32,14 +33,25 @@ public class CoordinatorService {
         return coordinatorRepository.findByRmCoordinator(rmCoordinator);
     }
 
+    public List<Coordinator> getAllBySchol(School school){
+        Optional<List<Coordinator>> gettedThisStudents = 
+        coordinatorRepository.findBySchool(school);
+        if(gettedThisStudents.isPresent()){
+            return gettedThisStudents.get();
+        }else{
+System.out.println("null");
+            return null;
+        }
+    }
+
     public List<Coordinator> convertPersonToCoordinator(List<Person> persons) {
         List<Coordinator> coordinators = new ArrayList<>();
         
         for (Person person : persons) {
             if (coordinatorRepository.findById(person.getId()).isPresent()) {
                 Coordinator coordinator = coordinatorRepository.findById(person.getId()).get();
-                coordinators.add(coordinator);
-//                System.out.println(coordinator.getEmail());
+                if(coordinator != null) coordinators.add(coordinator);
+               if(coordinator == null) System.out.println("ue");
             }
 
             // nao é um erro - lista todas as pessoas referentes a essa escola, incluindo as que nao sao coordenadores

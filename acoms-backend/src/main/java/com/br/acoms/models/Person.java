@@ -21,9 +21,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,6 +40,7 @@ import lombok.NoArgsConstructor;
 })
 @Inheritance(strategy = InheritanceType.JOINED)
 @Data @AllArgsConstructor @NoArgsConstructor
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_person_seq")
@@ -77,7 +80,7 @@ public abstract class Person {
 
     @JsonIgnoreProperties("hibernateLazyInitializer")
     @JsonManagedReference
-    @ManyToOne(cascade = CascadeType.REMOVE, optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REMOVE, optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_school")
     private School school; 
 

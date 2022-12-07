@@ -35,8 +35,9 @@ public class JwtFilter extends OncePerRequestFilter {
         try {
             String jwt = jwtUtils.parseJwt(request);
             // System.out.println("jwtFilter.doFilter jwtValue = " + jwt);
-            System.out.println("Requisitado " + request.getRequestURI());
+            System.out.println("Requisitado "+ request.getMethod() +" "+ request.getRequestURI());
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
+                System.out.println("# # # aceita!");
                 String username = jwtUtils.getUserNameFromJwtToken(jwt);
 
                 // System.out.println("########################");

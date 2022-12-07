@@ -47,9 +47,6 @@ public class RunSeeder {
 
         private final CoordinatorService coordinatorService;
         private final GuardianService guardianService;
-        private final ChatService chatService;
-        private final StudentService studentService;
-
         @EventListener
         public void seed(ContextRefreshedEvent event) {
                 schoolDataSeeder();
@@ -63,8 +60,6 @@ public class RunSeeder {
         }
 
         public void testerrr() {
-                School escola = schoolRepository.findById(Long.valueOf(1)).get();
-                Guardian guardian = guardianService.convertPersonToGuardian(escola.getPersons()).get(0);
 
                 // List<Student> students =studentService.getAllByGuardian(guardian.getId());
                 // for(Student student : students){
@@ -90,6 +85,22 @@ public class RunSeeder {
                                 "valdete", Date.valueOf("1950-09-20"), "00003",
                                 "(17) 996732321", "nothing", School.Planos.VIP, true));
 
+                schools.add(new School("SESI",
+                                "Rua elideo Graces de rezende; numero 130",
+                                "admin@sesi.com.br", encoder.encode("admin"), "14", "(17) 99793825",
+                                "valdete", Date.valueOf("1950-09-20"), "00004",
+                                "(17) 990967323", "nothing", School.Planos.VIP, true));
+
+                schools.add(new School("Elas", "Rua limos barros de melo; numero 160",
+                                "admin@elas.br", encoder.encode("password"), "172", "(17) 997938236",
+                                "valdete", Date.valueOf("1950-09-20"), "00005",
+                                "(17) 99673432", "nothing", School.Planos.BASICO, false));
+
+                schools.add(new School("Barosi", "Rua dacubinha; numero 154",
+                                "admin@barosi.com.br", encoder.encode("password"), "221", "(17) 99793827",
+                                "valdete", Date.valueOf("1950-09-20"), "00006",
+                                "(17) 996732321", "nothing", School.Planos.VIP, true));
+
                 // schools.add(new School("Teste", "Rua teste; numero teste",
                 // "admin@teste.com.br", encoder.encode("admin"), "892", "(17) 9979382",
                 // "valdete", Date.valueOf("1950-09-20"), "00001",
@@ -101,45 +112,48 @@ public class RunSeeder {
         private void coordinatorDataSeeder() {
                 List<Coordinator> coordinators = new ArrayList<>();
 
-                Optional<School> escola1 = schoolRepository.findById(Long.valueOf(1));
-                if (escola1.isPresent()) {
-                        School escola = escola1.get();
-                        coordinators.add(new Coordinator("Joao otavio", "12311", "jaoOtavio@etec.sp.gov.br",
-                                        encoder.encode("password"),
-                                        Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola,
-                                        Roles.COORDINATOR,
-                                        "1"));
-                        coordinators.add(new Coordinator("Joao otavio2", "12312", "jaoOtavio2@etec.sp.gov.br",
-                                        encoder.encode("password"),
-                                        Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola,
-                                        Roles.COORDINATOR,
-                                        "2"));
-                        coordinators.add(new Coordinator("Joao otavio3", "12313", "jaoOtavio3@etec.sp.gov.br",
-                                        encoder.encode("password"),
-                                        Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola,
-                                        Roles.COORDINATOR,
-                                        "3"));
-                        coordinators.add(new Coordinator("Felipe Bonsai", "12314", "felipe@etec.sp.gov.br",
-                                        encoder.encode("password"),
-                                        Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola,
-                                        Roles.COORDINATOR,
-                                        "4"));
-                        coordinators.add(new Coordinator("Bonsai Felipe", "12315", "bonsai@etec.sp.gov.br",
-                                        encoder.encode("password"),
-                                        Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola,
-                                        Roles.COORDINATOR,
-                                        "5"));
-                        coordinators.add(new Coordinator("Tia Indiara", "12316", "tia@etec.sp.gov.br",
-                                        encoder.encode("password"),
-                                        Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola,
-                                        Roles.COORDINATOR,
-                                        "6"));
-                        coordinators.add(new Coordinator("Professora Indiara", "12317", "indiara@etec.sp.gov.br",
-                                        encoder.encode("password"),
-                                        Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola,
-                                        Roles.COORDINATOR,
-                                        "7"));
-                }
+                School escola1 = schoolRepository.findById(Long.valueOf(1)).get();
+
+                School escola2 = schoolRepository.findById(Long.valueOf(2)).get();
+                coordinators.add(
+                                new Coordinator("Maria Clara", "coordenador geral", "12311", "jaoOtavio@etec.sp.gov.br",
+                                                encoder.encode("password"),
+                                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
+                                                Roles.COORDINATOR,
+                                                "1"));
+                coordinators.add(new Coordinator("Gisele", "coordenador admnistratitvo", "12312",
+                                "jaoOtavio2@etec.sp.gov.br",
+                                encoder.encode("password"),
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
+                                Roles.COORDINATOR,
+                                "2"));
+                coordinators.add(new Coordinator("Joao otavio3", "coordenador de estagios", "12313",
+                                "jaoOtavio3@etec.sp.gov.br",
+                                encoder.encode("password"),
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
+                                Roles.COORDINATOR,
+                                "3"));
+                coordinators.add(new Coordinator("Felipe Bonsai", "coordenador geral", "12314", "felipe@etec.sp.gov.br",
+                                encoder.encode("password"),
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Roles.COORDINATOR,
+                                "4"));
+                coordinators.add(new Coordinator("Bonsai Felipe", "coordenador adminstrativo", "12315", "bonsai@etec.sp.gov.br",
+                                encoder.encode("password"),
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Roles.COORDINATOR,
+                                "5"));
+                coordinators.add(new Coordinator("Tia Indiara", "coordenador de estagios", "12316", "tia@etec.sp.gov.br",
+                                encoder.encode("password"),
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Roles.COORDINATOR,
+                                "6"));
+                coordinators.add(new Coordinator("Professora Indiara", "orientadora educacional", "12317",
+                                "indiara@etec.sp.gov.br",
+                                encoder.encode("password"),
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Roles.COORDINATOR,
+                                "7"));
 
                 coordinatorRepository.saveAll(coordinators);
         }

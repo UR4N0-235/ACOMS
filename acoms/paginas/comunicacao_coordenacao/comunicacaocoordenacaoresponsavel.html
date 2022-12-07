@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="/paginas/navbar/style.css">
 
+    <link rel="stylesheet" href="/chat/chat.css">
 
 </head>
 
@@ -34,7 +35,7 @@
             </div>
             <a href="/paginas/responsavel/responsavel.html">Início</a>
             <a href="/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html">Coordenação</a>
-            <a href="/paginas/comunicados/comunicados.html">Comunicados</a>
+            <a href="/paginas/comuni\cados/comunicados.html">Comunicados</a>
             <a class="logout" href="#">SAIR</a>
         </div>
         <div class="btn">
@@ -52,9 +53,9 @@
                             <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png" alt="Admin"
                                 class="rounded-circle" width="150">
                             <div class="mt-3">
-                                <h4>Samuel</h4>
+                                <h4 class="guardianName">Samuel</h4>
                                 <b class="text-secondary mb-1" font="black">Responsável</b>
-                                <p class="text-muted font-size-sm">ETEC Prof. Armando josé Farinazzo</p>
+                                <p class="text-muted font-size-sm schoolName">ETEC Prof. Armando josé Farinazzo</p>
                                 <button class="btn btn-primary"
                                     onclick="location.href='/paginas/responsavel/responsavelperfil.html'">Perfil</button>
                             </div>
@@ -69,9 +70,9 @@
 
                     <h1 style="text-align: center;">CONTATO DOS COORDENADORES:</h1>
 
-                    <div class="mb">
+                    <div class="mb contatoCoordinatorContainer">
 
-                        <div class="card mb-3" id="contato">
+                    <!--     <div class="card mb-3" id="contato">
 
                             <div class="d-flex text-muted pt-3">
 
@@ -162,7 +163,7 @@
                                     <span class="d-block">Leandro</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -171,9 +172,65 @@
 
         </div>
 
-        <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js">
-        <link rel="stylesheet" href="botstrap/assets/dist/js/bootstrap.bundle.min.js.map">
+        <div class="chatbox-wrapper">
+            <div class="chatbox-toggle">
+                <i class='bx bx-message-dots'></i>
+            </div>
+            <div class="chatbox-message-wrapper">
+                <div class="chatbox-message-header" style="background-image: linear-gradient(to right, #4562cc, #089bdf);">
+                    <div class="chatbox-message-profile">
+                        <img src="/paginas/coordenador/coordenador.png" alt="" class="chatbox-message-image">
+                        <div>
+                            <h4 class="chatbox-message-name" style="color: white;">João Otávio (Coordenador)</h4>
+                            <p class="chatbox-message-status" style="color: white;">online</p>
+                        </div>
+                    </div>
+                    <!-- <div class="chatbox-message-dropdown">
+                        <i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
+                        <ul class="chatbox-message-dropdown-menu">
+                            <li>
+                                <a href="#">Pesquisa</a>
+                            </li>
+                            <li>
+                                <a href="#">Reportar</a>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="chatbox-message-content">
+                    <h4 class="chatbox-message-no-message">Você ainda não tem mensagens!</h4>
+                    <!-- <div class="chatbox-message-item sent">
+                    <span class="chatbox-message-item-text">
+                        Bom dia, meu filho faltou hoje porque está doente e irá para o médico, portanto não comparecerá hoje na escola. Obrigado pela sua preocupação.
+                    </span>
+                    <span class="chatbox-message-item-time">08:30</span>
+                </div>
 
+                <div class="chatbox-message-item received">
+                    <span class="chatbox-message-item-text">
+                        Bom dia, senho reponsável, queria avisa-lo que seu filho está ausente hoje na escola, há algum motiva para a falta dele?
+                    </span>
+                    <span class="chatbox-message-item-time">08:30</span>
+                </div> -->
+                </div>
+                <div class="chatbox-message-bottom" style="background-image: linear-gradient(to right, #4562cc, #089bdf);">
+                    <form action="#" class="chatbox-message-form" id="form">
+                        <textarea rows="1" placeholder="Escreva uma mensagem..." class="chatbox-message-input"
+                            cols="50" id="usermsg"></textarea>
+                        <button type="submit" class="chatbox-message-submit"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="/chat/chat-responsavel.js"></script>
+</div>
+        <script src="botstrap/assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="botstrap/assets/dist/js/bootstrap.bundle.min.js.map"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="/integrationFile/integration.js"></script>
 </body>
 
 </html>

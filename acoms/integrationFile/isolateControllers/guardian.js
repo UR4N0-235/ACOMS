@@ -1,8 +1,8 @@
 runController();
 
-
 function runController() {
     getLoggedGuardianInfos();
+    updateGuardianListener();
 }
 
 async function getLoggedGuardianInfos() {
@@ -18,12 +18,18 @@ async function getLoggedGuardianInfos() {
     }
 
     await fetch(url, header).then(async (response) => {
+        if(response.status == 451){
+            console.log("escola desligada");
+        }
+
         if (response.status == 200) {
             let loggedGuardian = await response.json();
             let childrens = await getGuardianChildres(header);
+            let coordinotars = await getGuardianCoordinators(header);
 
             defineGuardianFields(loggedGuardian);
             defineGuardianChildrens(childrens);
+            defineContatctList(coordinotars);
 
             // console.log("logged is" + JSON.stringify(loggedGuardian, undefined, 4));
             // console.log(`teste 1 ${childrens}`)
@@ -57,15 +63,74 @@ async function getGuardianChildres(header){
     return childrens;
 }
 
+async function getGuardianCoordinators(header){
+    let url = `http://${getIpServer()}:8080/guardian/coordinators`;
+    var coordinators = '';
+    // console.log("header = " + header);
+
+    await fetch(url, header).then(async (response) => {
+        if (response.status == 200) {
+            coordinators = await response.json(); 
+        } else {
+            console.log(`error on fetch ${url} status code ${response.status}`);
+            // window.location.replace("http://127.0.0.1:5500/paginas/landingpage/landingpage.html");
+        }
+    }).catch((err) =>{
+        console.log("error2 " + err);
+        // window.location.replace("http://127.0.0.1:5500/paginas/landingpage/landingpage.html"); 
+    });
+    return coordinators;
+}
+
+
+
 function defineGuardianFields(loggedGuardian) {
+    console.log(loggedGuardian)
     $(".guardianName").each((index, guardian) => {
         $(guardian).text(loggedGuardian.name);
+    });
+    
+    $(".guardianCpf").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.cpf);
+    });
+    
+    $(".guardianTelephone").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.telephoneNumber);
+    });
+
+    $(".guardianEmail").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.email);
+    });
+
+    $(".guardianAddress").each((index, guardian) => {
+        $(guardian).text(loggedGuardian.address);
+    });
+
+    $(".guardianBirthDay").each((index, guardian) => {
+        var date = new Date(loggedGuardian.dateOfBirthday);
+        // console.log("moment "+moment.unix(loggedGuardian.dateOfBirthday).format("DD/MM/YYYY"));
+        $(guardian).text(`${date.getDate()}/${date.getMonth()}/${date.getFullYear+1}`);
     });
 
     $(".schoolName").each((index, school) => {
         $(school).text(loggedGuardian.school.name);
     });
 
+    $(".inputGuardianName").each((index, guardian) => {
+        $(guardian).attr('value', loggedGuardian.name);
+    });
+
+    $(".inputGuardianTelephone").each((index, guardian) => {
+        $(guardian).attr('value', loggedGuardian.telephoneNumber);
+    });
+
+    $(".inputGuardianEmail").each((index, guardian) => {
+        $(guardian).attr('value', loggedGuardian.email);
+    });
+
+    $(".inputGuardianAddress").each((index, guardian) => {
+        $(guardian).attr('value', loggedGuardian.address);
+    });
 }
 
 function defineGuardianChildrens(childrens){
@@ -97,4 +162,47 @@ function defineGuardianChildrens(childrens){
             `);
         });
     })
+}
+
+function updateGuardianListener(){
+    $('.updateGuardian').on((index, form)=>{
+        var formData = $(form);
+        $(".updateGuardian .submit").on('click',async (event)=>{
+            event.preventDefault();
+            console.log("teste");
+        });
+    });
+}
+
+
+function defineContatctList(coordintarosList){
+    console.log(coordintarosList);
+
+    coordintarosList.forEach( coordinator=>{
+        $(".contatoCoordinatorContainer").append(`
+        <div class="card mb-3" id="contato">
+    
+        <div class="d-flex text-muted pt-3">
+    
+            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%"
+                    fill="#007bff" dy=".3em">32x32</text>
+            </svg>
+    
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                <div class="d-flex justify-content-between">
+                    <strong class="text-gray-dark">${coordinator.cargo}</strong>
+                    <button class="btn btn-primary" id="visualizar"
+                        onclick="location.href='/paginas/chat/chatresponsavelcoordenacao.html'">Entrar
+                        em contato</button>
+                </div>
+                <span class="d-block">${coordinator.name}</span>
+            </div>
+        </div>
+    </div>
+    `);
+    });
 }

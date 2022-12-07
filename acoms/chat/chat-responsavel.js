@@ -28,24 +28,19 @@ chatboxToggle.addEventListener('click', function () {
 
 
 
-// DROPDOWN TOGGLE
-const dropdownToggle = document.querySelector('.chatbox-message-dropdown-toggle')
-const dropdownMenu = document.querySelector('.chatbox-message-dropdown-menu')
+// DROPDOWN TOGGLE -- turned off
+		// const dropdownToggle = document.querySelector('.chatbox-message-dropdown-toggle')
+		// const dropdownMenu = document.querySelector('.chatbox-message-dropdown-menu')
 
-dropdownToggle.addEventListener('click', function () {
-	dropdownMenu.classList.toggle('show')
-})
+		// dropdownToggle.addEventListener('click', function () {
+		// 	dropdownMenu.classList.toggle('show')
+		// })
 
-document.addEventListener('click', function (e) {
-	if(!e.target.matches('.chatbox-message-dropdown, .chatbox-message-dropdown *')) {
-		dropdownMenu.classList.remove('show')
-	}
-})
-
-
-
-
-
+		// document.addEventListener('click', function (e) {
+		// 	if(!e.target.matches('.chatbox-message-dropdown, .chatbox-message-dropdown *')) {
+		// 		dropdownMenu.classList.remove('show')
+		// 	}
+		// })
 
 
 // CHATBOX MESSAGE

@@ -10,7 +10,12 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +24,8 @@ import lombok.Setter;
 @Entity
 @Table(name = "coordinator")
 @Getter @Setter @RequiredArgsConstructor
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Coordinator extends Person {
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // @Column(name = "id", updatable = false)
-    // private Long idCoordinator;
-
-    //usando o rm como se fosse um id proprio do coordenador
     @Column(name = "rmCoordinator", unique = true, updatable = false)
     private String rmCoordinator;
 
@@ -32,10 +33,13 @@ public class Coordinator extends Person {
     @OneToMany(mappedBy = "coordinator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Chat> chatList;
 
+    @Column(name = "cargo")
+    private String cargo;
 
-    public Coordinator(String name, String cpf, String email, String password, Date dateOfBirthday,
+    public Coordinator(String name, String cargo, String cpf, String email, String password, Date dateOfBirthday,
             String telephoneNumber, String profilePhoto, String address, School school, Roles role, String rm) {
         super(name, cpf, email, password, dateOfBirthday, telephoneNumber, profilePhoto, school, role, address);
         this.rmCoordinator = rm;
+        this.cargo = cargo;
     }
 }

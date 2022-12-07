@@ -18,13 +18,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "school", uniqueConstraints = {
@@ -32,9 +36,10 @@ import lombok.NoArgsConstructor;
         @UniqueConstraint(name = "school_email_unique", columnNames = "email")
 })
 // @Setter @Getter @AllArgsConstructor @NoArgsConstructor
-@Data
+@Data @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,8 +67,6 @@ public class School {
 
     @Column(name = "telephoneNumber", unique = true, nullable = false)
     private String telephoneNumber;
-
-
 
     // start management
     @Column(name = "nameManagement")

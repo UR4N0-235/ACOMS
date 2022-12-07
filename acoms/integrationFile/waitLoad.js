@@ -64,5 +64,5 @@ function loaded(preloadOff) {
 }
 
 window.addEventListener('load', ()=>{
-    setTimeout(loaded(document.getElementById("preloader")), 2000)
+    setTimeout(loaded(document.getElementById("preloader")), 1000)
 });
