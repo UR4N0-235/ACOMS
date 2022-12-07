@@ -44,6 +44,7 @@ public class RunSeeder {
 
         private final CoordinatorService coordinatorService;
         private final GuardianService guardianService;
+
         @EventListener
         public void seed(ContextRefreshedEvent event) {
                 schoolDataSeeder();
@@ -58,7 +59,8 @@ public class RunSeeder {
 
         public void testerrr() {
                 // School escola = schoolRepository.findById(Long.valueOf(1)).get();
-                // Guardian guardian = guardianService.convertPersonToGuardian(escola.getPersons()).get(0);
+                // Guardian guardian =
+                // guardianService.convertPersonToGuardian(escola.getPersons()).get(0);
 
                 // List<Student> students =studentService.getAllByGuardian(guardian.getId());
                 // for(Student student : students){
@@ -112,45 +114,58 @@ public class RunSeeder {
                 List<Coordinator> coordinators = new ArrayList<>();
 
                 School escola1 = schoolRepository.findById(Long.valueOf(1)).get();
-
                 School escola2 = schoolRepository.findById(Long.valueOf(2)).get();
-                coordinators.add(
-                                new Coordinator("Maria Clara", "coordenador geral", "12311", "jaoOtavio@etec.sp.gov.br",
-                                                encoder.encode("password"),
-                                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
-                                                Roles.COORDINATOR,
-                                                "1"));
+                School escola3 = schoolRepository.findById(Long.valueOf(3)).get();
+                School escola4 = schoolRepository.findById(Long.valueOf(4)).get();
+                School escola5 = schoolRepository.findById(Long.valueOf(5)).get();
+                School escola6 = schoolRepository.findById(Long.valueOf(6)).get();
+                
+
+                coordinators.add(new Coordinator("Joao Otavio", "Gestora de comunicacoes", "12311",
+                                "jaoOtavio@etec.sp.gov.br",
+                                encoder.encode("password"),
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
+                                Roles.COORDINATOR,
+                                "1"));
+
                 coordinators.add(new Coordinator("Gisele", "coordenador admnistratitvo", "12312",
                                 "jaoOtavio2@etec.sp.gov.br",
                                 encoder.encode("password"),
-                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
                                 Roles.COORDINATOR,
                                 "2"));
+
                 coordinators.add(new Coordinator("Joao otavio3", "coordenador de estagios", "12313",
                                 "jaoOtavio3@etec.sp.gov.br",
                                 encoder.encode("password"),
-                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola3,
                                 Roles.COORDINATOR,
                                 "3"));
+
                 coordinators.add(new Coordinator("Felipe Bonsai", "coordenador geral", "12314", "felipe@etec.sp.gov.br",
                                 encoder.encode("password"),
-                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola4,
                                 Roles.COORDINATOR,
                                 "4"));
-                coordinators.add(new Coordinator("Bonsai Felipe", "coordenador adminstrativo", "12315", "bonsai@etec.sp.gov.br",
+
+                coordinators.add(new Coordinator("Bonsai Felipe", "coordenador adminstrativo", "12315",
+                                "bonsai@etec.sp.gov.br",
                                 encoder.encode("password"),
-                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola5,
                                 Roles.COORDINATOR,
                                 "5"));
-                coordinators.add(new Coordinator("Tia Indiara", "coordenador de estagios", "12316", "tia@etec.sp.gov.br",
+
+                coordinators.add(new Coordinator("Tia Indiara", "coordenador de estagios", "12316",
+                                "tia@etec.sp.gov.br",
                                 encoder.encode("password"),
-                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola6,
                                 Roles.COORDINATOR,
                                 "6"));
-                coordinators.add(new Coordinator("Professora Indiara", "orientadora educacional", "12317",
+
+                coordinators.add(new Coordinator("Indiara Almeida", "Orientadora Educacional", "12317",
                                 "indiara@etec.sp.gov.br",
                                 encoder.encode("password"),
-                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola2,
+                                Date.valueOf("1990-09-20"), "(17) 996736281", null, "endereco", escola1,
                                 Roles.COORDINATOR,
                                 "7"));
 
@@ -160,37 +175,41 @@ public class RunSeeder {
         private void guardianDataSeeder() {
                 List<Guardian> guardians = new ArrayList<>();
 
-                Optional<School> escola1 = schoolRepository.findById(Long.valueOf(1));
-                if (escola1.isPresent()) {
-                        School escola = escola1.get();
+                School escola1 = schoolRepository.findById(Long.valueOf(1)).get();
+                School escola2 = schoolRepository.findById(Long.valueOf(2)).get();
+                School escola3 = schoolRepository.findById(Long.valueOf(3)).get();
+                School escola4 = schoolRepository.findById(Long.valueOf(4)).get();
 
+                
                         guardians.add(
-                                        new Guardian("fran", "890", "fran@gmail.com",
-                                                        encoder.encode("fran123"), Date.valueOf("1990-09-20"),
+                                        new Guardian("Tamires Lemes de rocha", "890.000.123-12",
+                                                        "LemesTamires@gmail.com",
+                                                        encoder.encode("senha1"), Date.valueOf("1990-09-20"),
                                                         "(17) 9967-89090", null,
-                                                        escola, Roles.GUARDIAN,
+                                                        escola1, Roles.GUARDIAN,
                                                         "numero rua ; cidade estadoAbreviado cep", Long.valueOf(1)));
 
                         guardians.add(
-                                        new Guardian("valter", "891", "valter@gmail.com",
-                                                        encoder.encode("valter123"), Date.valueOf("1970-09-20"),
+                                        new Guardian("Alison Rodrigues De Solza", "891.001.132-14", "Alison@gmail.com",
+                                                        encoder.encode("senha1"), Date.valueOf("1970-09-20"),
                                                         "(17) 9967-89092", null,
-                                                        escola, Roles.GUARDIAN,
+                                                        escola2, Roles.GUARDIAN,
                                                         "numero rua ; cidade estadoAbreviado cep", Long.valueOf(2)));
                         guardians.add(
-                                        new Guardian("responsavel1", "892", "responsavel1@gmail.com",
-                                                        encoder.encode("responsavel1"), Date.valueOf("1990-09-20"),
+                                        new Guardian("Jair Antonio De Souza", "525.909.202-20",
+                                                        "responsave1321@gmail.com",
+                                                        encoder.encode("senha1"), Date.valueOf("1990-09-20"),
                                                         "(17) 9967-89093", null,
-                                                        escola, Roles.GUARDIAN,
+                                                        escola3, Roles.GUARDIAN,
                                                         "numero rua ; cidade estadoAbreviado cep", Long.valueOf(3)));
                         guardians.add(
                                         new Guardian("Silvo Cesar Lopes", "123.321.222-13", "Silvio@gmail.com",
                                                         encoder.encode("calvaoDeCria123"), Date.valueOf("1990-09-20"),
                                                         "(17) 9967-89901", null,
-                                                        escola, Roles.GUARDIAN,
+                                                        escola4, Roles.GUARDIAN,
                                                         "numero rua ; cidade estadoAbreviado cep", Long.valueOf(4)));
 
-                }
+                
                 guardianRepository.saveAll(guardians);
         }
 
@@ -237,20 +256,58 @@ public class RunSeeder {
         }
 
         private void studentDataSeeder() {
-                School escola = schoolRepository.findById(Long.valueOf(1)).get();
+                School escola1 = schoolRepository.findById(Long.valueOf(1)).get();
+                School escola2 = schoolRepository.findById(Long.valueOf(2)).get();
+                School escola3 = schoolRepository.findById(Long.valueOf(3)).get();
+                School escola4 = schoolRepository.findById(Long.valueOf(4)).get();
 
-                List<Guardian> guardiansList = guardianRepository.findBySchool(escola).get();
-                Guardian guardian1 = guardiansList.get(0);
+                List<Guardian> guardiansList1 = guardianRepository.findBySchool(escola1).get();
+                List<Guardian> guardiansList2 = guardianRepository.findBySchool(escola2).get();
+                List<Guardian> guardiansList3 = guardianRepository.findBySchool(escola3).get();
+                List<Guardian> guardiansList4 = guardianRepository.findBySchool(escola4).get();
+
+                Guardian guardian1 = guardiansList1.get(0);
+                Guardian guardian2 = guardiansList2.get(0);
+                Guardian guardian3 = guardiansList3.get(0);
+                Guardian guardian4 = guardiansList4.get(0);
+
                 List<Student> childrens = new ArrayList<>();
 
-                childrens.add(new Student("matheus", "10", "matheus.fernandes92.235@protonmail.com",
+                childrens.add(new Student("Carlos Tomaz", "145.213.231-12", "carlos@protonmail.com",
                                 encoder.encode("password"), Date.valueOf("2004-09-02"), "(17) 99673-67329",
-                                null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                null, escola1, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
                                 guardian1, Long.valueOf(1)));
-                childrens.add(new Student("gabriel", "11", "gabriel@protonmail.com",
-                                encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-67330",
-                                null, escola, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                childrens.add(new Student("Gabriel Ferrare", "312.231.542-34", "gabriel@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-12345",
+                                null, escola1, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
                                 guardian1, Long.valueOf(2)));
+
+                childrens.add(new Student("Airton Lima", "321.315.643-32", "airton@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2004-09-02"), "(17) 99673-65429",
+                                null, escola2, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian2, Long.valueOf(3)));
+
+                childrens.add(new Student("Pereira Caetano", "315.312.665-21", "pereira@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-67354",
+                                null, escola3, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian3, Long.valueOf(4)));
+                childrens.add(new Student("Gabriele Zucarri", "909.921.235-32", "gabrielZucarri@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2004-09-02"), "(17) 99673-67331",
+                                null, escola3, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian3, Long.valueOf(5)));
+                childrens.add(new Student("Gabriel Reis", "313.135.356-45", "GabrrielReis@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-67321",
+                                null, escola3, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian3, Long.valueOf(6)));
+
+                childrens.add(new Student("Yian de Bessoa", "312.211.213-21", "bessoa@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2004-09-02"), "(17) 99673-84243",
+                                null, escola4, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian4, Long.valueOf(7)));
+                childrens.add(new Student("Paulo Merces", "351.235.123-31", "merces@protonmail.com",
+                                encoder.encode("password"), Date.valueOf("2005-09-02"), "(17) 99673-87330",
+                                null, escola4, Roles.STUDENT, "numero rua ; cidade estadoAbreviado cep",
+                                guardian4, Long.valueOf(8)));
 
                 studentRepository.saveAll(childrens);
 

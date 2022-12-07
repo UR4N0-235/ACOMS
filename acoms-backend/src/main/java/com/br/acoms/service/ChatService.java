@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.br.acoms.models.Chat;
 import com.br.acoms.models.Coordinator;
+import com.br.acoms.models.Guardian;
 import com.br.acoms.repository.ChatRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -20,5 +21,11 @@ public class ChatService {
         Optional<List<Chat>> allChats = chatRepository.findByCoordinator(coordinator);
         if(allChats.isEmpty()) return null;
         return allChats.get();
+    }
+
+    public Chat getByGuardian(Guardian guardian){
+        Optional<Chat> chat = chatRepository.findByGuardian(guardian);
+        if(chat.isEmpty()) return null;
+        return chat.get();
     }
 }
