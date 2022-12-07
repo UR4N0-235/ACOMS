@@ -1,6 +1,5 @@
 package com.br.acoms.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,18 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.br.acoms.models.Chat;
 import com.br.acoms.models.Coordinator;
 import com.br.acoms.models.Guardian;
-import com.br.acoms.models.Person;
-import com.br.acoms.models.School;
+import com.br.acoms.models.Message;
 import com.br.acoms.models.Student;
+import com.br.acoms.repository.MessageRepository;
 import com.br.acoms.security.jwt.JwtUtils;
+import com.br.acoms.service.ChatService;
 import com.br.acoms.service.CoordinatorService;
 import com.br.acoms.service.GuardianService;
-import com.br.acoms.service.SchoolService;
 import com.br.acoms.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
@@ -31,8 +32,11 @@ import lombok.RequiredArgsConstructor;
 public class GuardianController {
     private final StudentService studentService;
     private final GuardianService guardianService;
-    private final SchoolService schoolService;
     private final CoordinatorService coordinatorService;
+    private final ChatService chatService;
+
+    private final MessageRepository messageRepository;
+
     private final JwtUtils jwtUtils;
 
     @GetMapping("")
@@ -65,6 +69,16 @@ public class GuardianController {
         }
         return new ResponseEntity<>(coordinators,HttpStatus.OK);
     }
+
+    @GetMapping("chats")
+    public ResponseEntity<?> getAllMsgs(HttpServletRequest request){
+        if(verifyGuardian(request) == null) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        Chat getLoggedUserChat = chatService.getByGuardian(verifyGuardian(request));
+        List<Message> mensagens = messageRepository.findByChat(getLoggedUserChat).get();
+        
+        return new ResponseEntity<>(mensagens, HttpStatus.OK);
+    }
+
 
     private Guardian verifyGuardian(HttpServletRequest request){
         // System.out.println("verificando coordenador");

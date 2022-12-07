@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.br.acoms.models.Chat;
 import com.br.acoms.models.Coordinator;
+import com.br.acoms.models.Guardian;
 
 @Repository
 public interface ChatRepository extends JpaRepository<Chat, Long>{
     Optional<List<Chat>> findByCoordinator(Coordinator coordinator);
+    Optional<Chat> findByGuardian(Guardian guardian);
 }

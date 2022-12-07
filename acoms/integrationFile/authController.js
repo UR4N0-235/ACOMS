@@ -71,7 +71,9 @@ function verifyHrefNecessaryAuth() {
     // if(getAuthCookie() == '')window.location.replace('http://127.0.0.1:5500/paginas/landingpage/landingpage.html');
 
 
-    if (url.startsWith("/paginas/responsavel") || url.match("/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html")) {
+    if (url.startsWith("/paginas/responsavel") 
+    || url.match("/paginas/comunicacao_coordenacao/comunicacaocoordenacaoresponsavel.html")
+    || url.match("/paginas/comunicados/comunicados.html")) {
         $('head').append(`<script src="/integrationFile/isolateControllers/guardian.js"></script>`);
     }
 

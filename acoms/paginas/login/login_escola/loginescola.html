@@ -22,7 +22,7 @@
 			<div class="left">
 				<div class="top_link"><a href="/paginas/login-select/loginpage.html" alt="">Voltar para seleção</a></div>
 				<div class="contact">
-					<form action="">
+					<form class="loginRequest" action="/schoolLogin" method="post">
 						<h3>LOGAR</h3>
 						<span id="errologin" style="color: red; display: none;">login invalido! tente novamente</span>
 
@@ -35,7 +35,7 @@
 							<span>Show Password</span>							
 						</div>
 						
-						<button class="submit">ENTRAR</button>
+						<button formaction="/paginas/cadastro/cadastrar_aluno/cadastrar_aluno.html" class="submit">ENTRAR</button>
 					</form>
 				</div>
 			</div>
@@ -49,8 +49,9 @@
 		</div>
 	</section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="/integrationFile/integration.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/integrationFile/integration.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="../loginFunctions.js"></script>
 </body>
 </html>
